@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/01/30 16:04:59 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/08 14:50:38 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,18 @@
 
 
 
-
+#	include "get_next_line.h"
 
 typedef struct img_s
 {
 	int		height;
 	int		width;
 	void *img_player;  // Pointeur vers l'image
+	void *img_background;  // Pointeur vers l'image
+	void *img_wall;  // Pointeur vers l'image
     char *player;     // Données de l'image
+	char *background;     // Données de l'image
+	char *wall;     // Données de l'image
 }				t_img;
 
 
@@ -44,8 +48,9 @@ typedef struct game_s
 
 
 
-void print_img(t_game *data);
+// void print_img(t_game *data);
 int set_img(t_game *data);
+void	print_img(t_game *data, void *img, int x, int y);
 
 
 

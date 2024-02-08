@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:01:41 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/08 11:28:09 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/08 14:28:50 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,13 @@ int	main(void)
 
 
 	set_img(&vars);
-	print_img(&vars);
+	// print_img(&vars);
+	print_img(&vars, vars.img.img_background, 0, 0);
+	// set_img_background(&vars);
+	// print_img_background(&vars);
+	// set_img_wall(&vars);
+	// print_img_wall(&vars);
+	
 	mlx_loop(vars.mlx_ptr);
 	return (0);
 }
