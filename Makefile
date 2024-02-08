@@ -7,7 +7,7 @@ LIBFTNAME = libft.a
 
 
 
-SRCS= main.c
+SRCS= main.c utils.c
 # Remplacez .c par .o pour obtenir les noms des fichiers objets
 OBJS = $(SRCS:.c=.o)
 
