@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:04:02 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/08 14:29:40 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/12 12:32:30 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,23 @@ void	print_img(t_game *data, void *img, int x, int y)
 
 int set_img(t_game *data)
 {
-	data->img.height = 0;
-	data->img.width = 0;
-	data->img.player = "player.xpm";
+	data->img.height = 50;
+	data->img.width = 50;
+	data->img.player = "ninja.xpm";
 	data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.player, &(data->img.width), &(data->img.height));
-	data->img.background = "solsol.xpm";
+	data->img.background = "foret.xpm";
 	data->img.img_background = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.background, &(data->img.width), &(data->img.height));
-	data->img.wall = "murmur.xpm";
+	data->img.wall = "muuuur.xpm";
 	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.wall, &(data->img.width), &(data->img.height));
+			data->img.door = "porte.xpm";
+	data->img.img_door = mlx_xpm_file_to_image(data->mlx_ptr,
+			data->img.door, &(data->img.width), &(data->img.height));
+	data->img.bag = "coffre.xpm";
+	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
+			data->img.bag, &(data->img.width), &(data->img.height));
 
 
 	// if (!data->img.img_player)

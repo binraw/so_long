@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:01:41 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/08 14:28:50 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:57:14 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,14 @@ int	main(void)
 
 	set_img(&vars);
 	// print_img(&vars);
-	print_img(&vars, vars.img.img_background, 0, 0);
+	// print_img(&vars, vars.img.img_background, 0, 0);
+	// print_img(&vars, vars.img.img_player, 0, 0);
+	print_img(&vars, vars.img.img_player,  0, 0);
+	print_img(&vars, vars.img.img_background,  1, 1);
+	print_img(&vars, vars.img.img_background,  1, 0);
+	print_img(&vars, vars.img.img_background,  0, 1);
+	print_img(&vars, vars.img.img_bag,  1, 2);
+	print_img(&vars, vars.img.img_door,  0, 2);
 	// set_img_background(&vars);
 	// print_img_background(&vars);
 	// set_img_wall(&vars);
