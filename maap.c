@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/12 13:56:52 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:15:15 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,48 @@ void init_maap(t_game *data, char **argv)
     char	**maap;
 	int		y;
 	int		i;
+	char 	model;
 
 	y = 0;
 	i = 0;
     maap = read_maap(argv[1]);
 	if (!maap)
 		return (NULL);
+
+	while (maap[y])
+	{
+		i = 0;
+		while(maap[y][i])
+		{
+			screen_model(maap[y][i], i, y);
+			i++;
+		}
+		y++;
+	}
 	
+}
+void	screen_model(char c, t_game *data)
+{
+	if (c == '1')
+	{
+		print_img(*data, vars.img.img_background, x, y);
+	}
+	if (c == '0')
+	{
+		print_img(*data, vars.img.img_background, x, y);
+	}
+	if (c == 'C')
+	{
+		print_img(*data, vars.img.img_background, x, y);
+	}
+	if (c == 'E')
+	{
+		print_img(*data, vars.img.img_background, x, y);
+	}
+	if (c == 'P')
+	{
+		print_img(*data, vars.img.img_background, x, y);
+	}
 }
 
 char **read_maap(char *file)

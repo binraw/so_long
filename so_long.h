@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/12 14:04:47 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:14:44 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ char **alloc_lign(char *file);
 int count_line_maap(char *file);
 char **read_maap(char *file);
 void init_maap(t_game *data);
+t_model     define_model(char c);
 
 
 
