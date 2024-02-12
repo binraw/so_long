@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:01:41 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/12 11:57:14 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:49:58 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,14 @@
 // 	return (0);
 // }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_game	vars;
 	// t_img *img;
 	// void *img;
 	// int img_width;
 	// int img_height;
+	(void)argc;
 	
 	vars.mlx_ptr = mlx_init();
 	vars.mlx_win = mlx_new_window(vars.mlx_ptr, 800, 600, "Hello world!");
@@ -44,15 +45,16 @@ int	main(void)
 
 
 	set_img(&vars);
+	init_maap(&vars,&argv[1]);
 	// print_img(&vars);
 	// print_img(&vars, vars.img.img_background, 0, 0);
 	// print_img(&vars, vars.img.img_player, 0, 0);
-	print_img(&vars, vars.img.img_player,  0, 0);
-	print_img(&vars, vars.img.img_background,  1, 1);
-	print_img(&vars, vars.img.img_background,  1, 0);
-	print_img(&vars, vars.img.img_background,  0, 1);
-	print_img(&vars, vars.img.img_bag,  1, 2);
-	print_img(&vars, vars.img.img_door,  0, 2);
+	// print_img(&vars, vars.img.img_player,  0, 0);
+	// print_img(&vars, vars.img.img_background,  1, 1);
+	// print_img(&vars, vars.img.img_background,  1, 0);
+	// print_img(&vars, vars.img.img_background,  0, 1);
+	// print_img(&vars, vars.img.img_bag,  1, 2);
+	// print_img(&vars, vars.img.img_door,  0, 2);
 	// set_img_background(&vars);
 	// print_img_background(&vars);
 	// set_img_wall(&vars);

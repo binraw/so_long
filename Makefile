@@ -7,7 +7,7 @@ LIBFTNAME = libft.a
 
 
 
-SRCS= main.c utils.c get_next_line.c get_next_line_utils.c
+SRCS= main.c utils.c get_next_line.c get_next_line_utils.c maap.c generate_img.c
 # Remplacez .c par .o pour obtenir les noms des fichiers objets
 OBJS = $(SRCS:.c=.o)
 

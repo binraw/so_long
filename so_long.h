@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/12 14:14:44 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:50:24 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,14 @@ typedef struct game_s
 	
 }	t_game;
 
-typedef	struct model_s
-{
-	WALL = '1',
-	COLLECTABLE = 'C',
-	PLAYER = 'P',
-	EXIT = 'E',
-	FLOOR = '0'
-}	t_model;
+// typedef	struct model_s
+// {
+// 	WALL = '1',
+// 	COLLECTABLE = 'C',
+// 	PLAYER = 'P',
+// 	EXIT = 'E',
+// 	FLOOR = '0'
+// }	t_model;
 
 
 
@@ -68,8 +68,9 @@ void	print_img(t_game *data, void *img, int x, int y);
 char **alloc_lign(char *file);
 int count_line_maap(char *file);
 char **read_maap(char *file);
-void init_maap(t_game *data);
-t_model     define_model(char c);
+void init_maap(t_game *data, char **argv);
+// t_model     define_model(char c);
+void	screen_model(char c, t_game *data, int i, int y);
 
 
 
