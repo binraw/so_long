@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/13 14:57:25 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:39:46 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,31 @@ void init_maap(t_game *data)
 		y++;
 	}
 	
+}
+int		count_collect(t_game *data)
+{
+	int count;
+	int		y;
+	int		i;
+	
+
+	y = 0;
+	i = 0;
+	count = 0;
+	while (data->map[y])
+	{
+		i = 0;
+		while(data->map[y][i] != '\n' && data->map[y][i])
+		{
+			if (data->map[y][i] == 'C')
+				count++;
+			// printf("%d\n", i);
+			i++;
+		}
+		// printf("%d\n", y);
+		y++;
+	}
+	return (count);
 }
 void	screen_model(char c, t_game *data, int i, int y)
 {

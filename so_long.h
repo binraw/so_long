@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/13 14:03:06 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:38:51 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void		alloc_lign(char *file, t_game *data);
 int count_line_maap(char *file);
 int count_line(char **file);
 void	read_maap(char *file, t_game *data);
+int		count_collect(t_game *data);
 // void init_maap(t_game *data, char **argv);
 void init_maap(t_game *data);
 void	screen_model(char c, t_game *data, int i, int y);
