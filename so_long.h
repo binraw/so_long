@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/12 15:50:24 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/13 10:33:54 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct game_s
 
 	int		width;
 	int		height;
+	char **map;
 	
 	t_img	img;
 
@@ -65,9 +66,10 @@ typedef struct game_s
 int set_img(t_game *data);
 void	print_img(t_game *data, void *img, int x, int y);
 
-char **alloc_lign(char *file);
+
+void		alloc_lign(char *file, t_game *data);
 int count_line_maap(char *file);
-char **read_maap(char *file);
+void	read_maap(char *file, t_game *data);
 void init_maap(t_game *data, char **argv);
 // t_model     define_model(char c);
 void	screen_model(char c, t_game *data, int i, int y);

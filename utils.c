@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:04:02 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/12 12:32:30 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/13 11:27:36 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 void	print_img(t_game *data, void *img, int x, int y)
 {
 	mlx_put_image_to_window(data->mlx_ptr, data->mlx_win, img,
-		data->img.width * x, data->img.height * y);
+		50 * x, 50 * y);
 }
 
 // void print_img(t_game *data)

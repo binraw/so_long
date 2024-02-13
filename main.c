@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:01:41 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/12 15:49:58 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/13 11:19:12 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,11 @@ int	main(int argc, char **argv)
 
 
 	set_img(&vars);
-	init_maap(&vars,&argv[1]);
+	init_maap(&vars, argv);
+	// printf("%s\n", vars.map[0]);
+	// printf("%s\n", vars.map[1]);
+	// printf("%s\n", vars.map[2]);
+	// printf("%s\n", vars.map[3]);
 	// print_img(&vars);
 	// print_img(&vars, vars.img.img_background, 0, 0);
 	// print_img(&vars, vars.img.img_player, 0, 0);

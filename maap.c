@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/12 16:04:37 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/13 11:29:29 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,40 @@
 
 void init_maap(t_game *data, char **argv)
 {
-    char	**maap;
+    // char	**maap;
 	int		y;
 	int		i;
 	
 
 	y = 0;
 	i = 0;
-    maap = read_maap(argv[1]);
-	if (!maap)
+	// printf("%d\n", i);
+    read_maap(argv[1], data);
+	if (!data->map)
 		return ;
 
-	while (maap[y])
+	while (data->map[y])
 	{
 		i = 0;
-		while(maap[y][i])
+		while(data->map[y][i] != '\n' && data->map[y][i])
 		{
-			screen_model(maap[y][i], data, i, y);
+			screen_model(data->map[y][i], data, i, y);
+			// printf("%d\n", i);
 			i++;
 		}
+		// printf("%d\n", y);
 		y++;
 	}
 	
 }
 void	screen_model(char c, t_game *data, int i, int y)
 {
+	
 	if (c == '1')
 	{
-		print_img(data, data->img.img_background, i, y);
+		print_img(data, data->img.img_wall, i, y);
+		printf("%d\n", y);
+		printf("%d\n", i);
 	}
 	if (c == '0')
 	{
@@ -50,44 +56,50 @@ void	screen_model(char c, t_game *data, int i, int y)
 	}
 	if (c == 'C')
 	{
-		print_img(data, data->img.img_background, i, y);
+		print_img(data, data->img.img_bag, i, y);
 	}
 	if (c == 'E')
 	{
-		print_img(data, data->img.img_background, i, y);
+		print_img(data, data->img.img_door, i, y);
 	}
 	if (c == 'P')
 	{
-		print_img(data, data->img.img_background, i, y);
+		print_img(data, data->img.img_player, i, y);
 	}
 }
 
-char **read_maap(char *file)
+void	read_maap(char *file, t_game *data)
 {
-    char	**maap;
+    // char	**maap;
     int		i;
     int		fd;
+	int count;
 
 	i = 0;
 	fd = 0;
-	maap = alloc_lign(file);
-	if (!maap)
+	count = 0;
+	// printf("%d\n", i);
+	// printf("%d\n", 1);
+	 alloc_lign(file, data);
+	if (!data->map)
 	{
 		close(fd);
-		return (NULL);
+		return ;
 	}
 		
 	fd = open(file, O_RDONLY);
 	
-	while (i < count_line_maap(file))
+	count = count_line_maap(file);
+	// printf("%d\n", 1);
+	while ( i < count)
 	{
-		maap[i] = get_next_line(fd);
+		data->map[i] = get_next_line(fd);
 		i++;
 	}
-	maap[i] = NULL;
+	data->map[i] = NULL;
 	close(fd);
 	
-    return (maap);
+
 }
 
 int count_line_maap(char *file)
@@ -95,34 +107,43 @@ int count_line_maap(char *file)
 	int		count;
 	int		fd;
 	int 	reader;
-	char	c;
+	char	*lign;
 	
+	// file = "bom";
 	reader = 0;
 	fd = open(file, O_RDONLY);
-	count = 1;
-	while(reader > 0)
+	count = -1;
+	// printf("%d\n", 1);
+	// while(reader > 0)
+	// printf("%d\n", count);
+	lign = "lign";
+	while(lign != NULL)
 	{
-		reader = read(fd, &c, 1);
-		if (reader < 0)
-			return (-1);
-		if (c == '\n')
+		lign = get_next_line(fd);
+		// reader = read(fd, &c, 1);
+		// // if (reader < 0)
+		// // 	return (-1);
+		// if (c == '\n')
+		free(lign);
 			count++;
+			
+		
 	}
+	// printf("%d\n", count);
 	close(fd);
 	return (count);
 }
 
-char **alloc_lign(char *file)
+void		alloc_lign(char *file, t_game *data)
 {
-	char	**maap;
+	// char	**maap;
 	int		line_count;
-
+	line_count = 0;
+	// printf("%d\n", line_count);
 	line_count = count_line_maap(file);
-	if (line_count == 0)
-		return (NULL);
-	maap = malloc(sizeof(char *) * line_count + 1);
-	if (!maap)
-		return (NULL);
-	return (maap);
-	
+	// if (line_count == 0)
+	// 	return (NULL);
+	data->map = malloc(sizeof(char *) * line_count + 1);
+	// if (!data->map)
+		
 }
