@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/13 12:05:53 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:57:25 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ void	screen_model(char c, t_game *data, int i, int y)
 	if (c == '1')
 	{
 		print_img(data, data->img.img_wall, i, y);
-		printf("%d\n", y);
-		printf("%d\n", i);
 	}
 	if (c == '0')
 	{
@@ -65,6 +63,8 @@ void	screen_model(char c, t_game *data, int i, int y)
 	if (c == 'P')
 	{
 		print_img(data, data->img.img_player, i, y);
+		data->pos_x = i;
+		data->pos_y = y;
 	}
 }
 
@@ -78,8 +78,6 @@ void	read_maap(char *file, t_game *data)
 	i = 0;
 	fd = 0;
 	count = 0;
-	// printf("%d\n", i);
-	// printf("%d\n", 1);
 	 alloc_lign(file, data);
 	if (!data->map)
 	{
@@ -90,7 +88,6 @@ void	read_maap(char *file, t_game *data)
 	fd = open(file, O_RDONLY);
 	
 	count = count_line_maap(file);
-	// printf("%d\n", 1);
 	while ( i < count)
 	{
 		data->map[i] = get_next_line(fd);

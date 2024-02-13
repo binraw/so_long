@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/13 11:55:04 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:03:06 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 
 #	include "./mlx.h"
+#	include <X11/keysym.h>
 
-
+#	include <stdlib.h>
+#	include <stdio.h>
 
 #	include "get_next_line.h"
 
@@ -44,7 +46,9 @@ typedef struct game_s
 
 	int		width;
 	int		height;
-	char **map;
+	char 	**map;
+	int		pos_x;
+	int		pos_y;
 	
 	t_img	img;
 
@@ -75,7 +79,8 @@ void	read_maap(char *file, t_game *data);
 void init_maap(t_game *data);
 void	screen_model(char c, t_game *data, int i, int y);
 
-
+int    key_hook(int keycode, t_game *data);
+void    player_move(t_game *data, int new_y, int new_x);
 
 
 #endif
