@@ -6,14 +6,14 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/13 11:29:29 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:05:53 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <stdio.h> 
 
-void init_maap(t_game *data, char **argv)
+void init_maap(t_game *data)
 {
     // char	**maap;
 	int		y;
@@ -23,7 +23,7 @@ void init_maap(t_game *data, char **argv)
 	y = 0;
 	i = 0;
 	// printf("%d\n", i);
-    read_maap(argv[1], data);
+    // read_maap(argv[1], data);
 	if (!data->map)
 		return ;
 
@@ -113,26 +113,20 @@ int count_line_maap(char *file)
 	reader = 0;
 	fd = open(file, O_RDONLY);
 	count = -1;
-	// printf("%d\n", 1);
-	// while(reader > 0)
-	// printf("%d\n", count);
 	lign = "lign";
 	while(lign != NULL)
 	{
 		lign = get_next_line(fd);
-		// reader = read(fd, &c, 1);
-		// // if (reader < 0)
-		// // 	return (-1);
-		// if (c == '\n')
 		free(lign);
 			count++;
 			
 		
 	}
-	// printf("%d\n", count);
 	close(fd);
 	return (count);
 }
+
+
 
 void		alloc_lign(char *file, t_game *data)
 {
