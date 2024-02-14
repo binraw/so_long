@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/14 11:21:59 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:58:54 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct img_s
 	char *bag;
 	char *door;
     char *player;
-	char *player_right;     // Données de l'image
+	    // Données de l'image
 	char *background;     // Données de l'image
 	char *wall;     // Données de l'image
 }				t_img;
@@ -52,7 +52,10 @@ typedef struct game_s
 	int		pos_x;
 	int		pos_y;
 	int		count_left;
-	
+	int		reta_right;
+	int		count_back;
+	int		count_face;
+
 	t_img	img;
 
 	

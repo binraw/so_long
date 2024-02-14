@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:04:02 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/14 11:25:29 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:30:18 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,10 @@ int set_img(t_game *data)
 			data->img.door = "porte.xpm";
 	data->img.img_door = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.door, &(data->img.width), &(data->img.height));
-	data->img.bag = "coffre.xpm";
+	data->img.bag = "caisse1.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
-			data->img.player = "right_run.xpm";
-	data->img.img_player_right = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.player_right, &(data->img.width), &(data->img.height));
+
 
 // FAIRE initial  tout les img_ a null et verifie si bien creer si ce n'est pas le cas detroy tout le prog
 	// if (!data->img.img_player)
