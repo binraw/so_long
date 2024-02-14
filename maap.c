@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/13 15:39:46 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/14 11:30:56 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ void	read_maap(char *file, t_game *data)
 	fd = 0;
 	count = 0;
 	 alloc_lign(file, data);
+	 
 	if (!data->map)
 	{
 		close(fd);

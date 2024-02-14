@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:04:02 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/13 14:11:05 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/14 11:25:29 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ int set_img(t_game *data)
 {
 	data->img.height = 50;
 	data->img.width = 50;
-	data->img.player = "ninja.xpm";
+	data->img.player = "face.xpm";
 	data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.player, &(data->img.width), &(data->img.height));
-	data->img.background = "foret.xpm";
+	data->img.background = "fond.xpm";
 	data->img.img_background = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.background, &(data->img.width), &(data->img.height));
 	data->img.wall = "muuuur.xpm";
@@ -45,6 +45,9 @@ int set_img(t_game *data)
 	data->img.bag = "coffre.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
+			data->img.player = "right_run.xpm";
+	data->img.img_player_right = mlx_xpm_file_to_image(data->mlx_ptr,
+			data->img.player_right, &(data->img.width), &(data->img.height));
 
 // FAIRE initial  tout les img_ a null et verifie si bien creer si ce n'est pas le cas detroy tout le prog
 	// if (!data->img.img_player)

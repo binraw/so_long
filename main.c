@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:01:41 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/13 13:58:57 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/14 11:31:46 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 	read_maap(argv[1], &vars);
 	vars.mlx_win = mlx_new_window(vars.mlx_ptr, (ft_strlen(vars.map[0]) - 1) * 50, (count_line_maap(argv[1])) * 50, "Hello world!");
 
-
+vars.count_left = 0;
 	set_img(&vars);
 	
 	init_maap(&vars);

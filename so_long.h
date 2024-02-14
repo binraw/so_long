@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/13 15:38:51 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/14 11:21:59 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ typedef struct img_s
 	void *img_wall;  // Pointeur vers l'image
 	void *img_door;
 	void *img_bag;
+	void *img_player_right;
 	char *bag;
 	char *door;
-    char *player;     // Données de l'image
+    char *player;
+	char *player_right;     // Données de l'image
 	char *background;     // Données de l'image
 	char *wall;     // Données de l'image
 }				t_img;
@@ -49,6 +51,7 @@ typedef struct game_s
 	char 	**map;
 	int		pos_x;
 	int		pos_y;
+	int		count_left;
 	
 	t_img	img;
 
@@ -82,6 +85,7 @@ void	screen_model(char c, t_game *data, int i, int y);
 
 int    key_hook(int keycode, t_game *data);
 void    player_move(t_game *data, int new_y, int new_x);
+void    control_move(t_game *data, int new_y, int new_x);
 
 
 #endif
