@@ -6,12 +6,13 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:02:20 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/14 15:00:30 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/14 16:07:07 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+// CHANGEZ LES ARGUMENT PAR LA STRUCTURE DATA AVEC LA MAP
 
 int     format_check(char **map)
 {
@@ -93,3 +94,14 @@ int check_extension_file(char **argv)
 	return (0);
 }
 // Faire une copie du tableau ! parcourir remplacer autour du P toutes les case accessible par un P et count les C et E (500)fois environs
+
+
+int	check_valid_map(t_game *data)
+{
+	int collectible;
+	char **duplicate;
+
+	collectible = count_collect(data);
+	duplicate = ft_strdup(data->map);
+	
+}

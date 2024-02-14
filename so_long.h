@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/14 15:01:57 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:53:42 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct game_s
 	char 	**map;
 	int		pos_x;
 	int		pos_y;
+	// int		collectible;
 	int		count_left;
 	int		reta_right;
 	int		count_back;

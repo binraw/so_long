@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/14 11:30:56 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:53:59 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int		count_collect(t_game *data)
 }
 void	screen_model(char c, t_game *data, int i, int y)
 {
-	
 	if (c == '1')
 	{
 		print_img(data, data->img.img_wall, i, y);
