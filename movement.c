@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:20:04 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/14 13:42:30 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:37:29 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@ int    key_hook(int keycode, t_game *data)
         control_move(data, data->pos_y - 1, data->pos_x);
         player_move(data, data->pos_y - 1, data->pos_x);
         data->count_face = 1;
-            data->img.bag = "caisse1.xpm";
+            data->img.bag = "./assets/caisse1.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
         }
         else 
         {
-             data->img.player = "back_2.xpm";
+             data->img.player = "./assets/back_2.xpm";
         data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.player, &(data->img.width), &(data->img.height));
             
             player_move(data, data->pos_y - 1 , data->pos_x);
-            data->img.bag = "caisse4.xpm";
+            data->img.bag = "./assets/caisse4.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
         }
@@ -44,20 +44,23 @@ int    key_hook(int keycode, t_game *data)
             control_move(data, data->pos_y + 1, data->pos_x);
             player_move(data, data->pos_y + 1, data->pos_x);
             data->count_back = 1;
-                data->img.bag = "caisse3.xpm";
+                data->img.bag = "./assets/caisse3.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
         }
         else 
         {
-             data->img.player = "face_2.xpm";
+             data->img.player = "./assets/face_2.xpm";
         data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.player, &(data->img.width), &(data->img.height));
             
             player_move(data, data->pos_y + 1 , data->pos_x);
-            data->img.bag = "caisse1.xpm";
+            data->img.bag = "./assets/caisse1.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
+            data->img.wall = "./assets/fire.xpm";
+	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
+			data->img.wall, &(data->img.width), &(data->img.height));
         }
     }
      else if (keycode == XK_a || keycode == XK_Left)
@@ -67,20 +70,23 @@ int    key_hook(int keycode, t_game *data)
         control_move(data, data->pos_y, data->pos_x - 1);
         player_move(data, data->pos_y, data->pos_x - 1);
             data->count_left = 1;
-                data->img.bag = "caisse1.xpm";
+                data->img.bag = "./assets/caisse1.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
         }
         else 
         {
-             data->img.player = "left_2.xpm";
+             data->img.player = "./assets/left_2.xpm";
         data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.player, &(data->img.width), &(data->img.height));
             
             player_move(data, data->pos_y , data->pos_x - 1);
-            data->img.bag = "caisse4.xpm";
+            data->img.bag = "./assets/caisse4.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
+            data->img.wall = "./assets/fire.xpm";
+	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
+			data->img.wall, &(data->img.width), &(data->img.height));
         }
         
     }
@@ -91,20 +97,23 @@ int    key_hook(int keycode, t_game *data)
             control_move(data, data->pos_y, data->pos_x + 1);
             player_move(data, data->pos_y, data->pos_x + 1);
             data->reta_right = 1;
-                data->img.bag = "caisse4.xpm";
+                data->img.bag = "./assets/caisse4.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
         }
         else 
         {
-             data->img.player = "right_2.xpm";
+             data->img.player = "./assets/right_2.xpm";
         data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.player, &(data->img.width), &(data->img.height));
             
             player_move(data, data->pos_y , data->pos_x + 1);
-            data->img.bag = "caisse4.xpm";
+            data->img.bag = "./assets/caisse4.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
+            data->img.wall = "./assets/fire.xpm";
+	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
+			data->img.wall, &(data->img.width), &(data->img.height));
         }
     }
     else if (keycode == XK_Escape)
@@ -158,40 +167,52 @@ void    control_move(t_game *data, int new_y, int new_x)
     last_y = data->pos_y;
     if (last_x < new_x)
     {
-        data->img.player = "right_run.xpm";
+        data->img.player = "./assets/right_run.xpm";
         data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.player, &(data->img.width), &(data->img.height));
-            data->img.bag = "caisse3.xpm";
+            data->img.bag = "./assets/caisse3.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
+            data->img.wall = "./assets/fire3.xpm";
+	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
+			data->img.wall, &(data->img.width), &(data->img.height));
         
     }
     if (last_x > new_x)
     {
-        data->img.player = "left_run.xpm";
+        data->img.player = "./assets/left_run.xpm";
         data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.player, &(data->img.width), &(data->img.height));
-              data->img.bag = "caisse2.xpm";
+              data->img.bag = "./assets/caisse2.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
+            data->img.wall = "./assets/fire2.xpm";
+	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
+			data->img.wall, &(data->img.width), &(data->img.height));
             
     }
       if (last_y > new_y)
     {
-        data->img.player = "back_run.xpm";
+        data->img.player = "./assets/back_run.xpm";
         data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.player, &(data->img.width), &(data->img.height));
-              data->img.bag = "caisse4.xpm";
+              data->img.bag = "./assets/caisse4.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
+            data->img.wall = "./assets/fire2.xpm";
+	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
+			data->img.wall, &(data->img.width), &(data->img.height));
     }
        if (last_y < new_y)
     {
-        data->img.player = "face_run.xpm";
+        data->img.player = "./assets/face_run.xpm";
         data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.player, &(data->img.width), &(data->img.height));
-              data->img.bag = "caisse2.xpm";
+              data->img.bag = "./assets/caisse2.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
+            data->img.wall = "./assets/fire3.xpm";
+	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
+			data->img.wall, &(data->img.width), &(data->img.height));
     }
 }

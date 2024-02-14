@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/14 12:58:54 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:01:57 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,11 @@ void	screen_model(char c, t_game *data, int i, int y);
 int    key_hook(int keycode, t_game *data);
 void    player_move(t_game *data, int new_y, int new_x);
 void    control_move(t_game *data, int new_y, int new_x);
+
+int check_extension_file(char **argv);
+int		check_side_wall(char **map);
+int		check_wall_map(char **map);
+int     format_check(char **map);
 
 
 #endif
