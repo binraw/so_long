@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/14 15:53:59 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/15 11:50:00 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,31 +41,9 @@ void init_maap(t_game *data)
 	}
 	
 }
-int		count_collect(t_game *data)
-{
-	int count;
-	int		y;
-	int		i;
-	
 
-	y = 0;
-	i = 0;
-	count = 0;
-	while (data->map[y])
-	{
-		i = 0;
-		while(data->map[y][i] != '\n' && data->map[y][i])
-		{
-			if (data->map[y][i] == 'C')
-				count++;
-			// printf("%d\n", i);
-			i++;
-		}
-		// printf("%d\n", y);
-		y++;
-	}
-	return (count);
-}
+
+
 void	screen_model(char c, t_game *data, int i, int y)
 {
 	if (c == '1')
@@ -97,31 +75,26 @@ void	read_maap(char *file, t_game *data)
     // char	**maap;
     int		i;
     int		fd;
-	int count;
+	// int count;
 
 	i = 0;
 	fd = 0;
-	count = 0;
-	 alloc_lign(file, data);
-	 
+	data->numb_line = 0;
+	alloc_lign(file, data);
 	if (!data->map)
 	{
 		close(fd);
 		return ;
 	}
-		
 	fd = open(file, O_RDONLY);
-	
-	count = count_line_maap(file);
-	while ( i < count)
+	data->numb_line = count_line_maap(file);
+	while ( i < data->numb_line)
 	{
 		data->map[i] = get_next_line(fd);
 		i++;
 	}
 	data->map[i] = NULL;
 	close(fd);
-	
-
 }
 
 int count_line_maap(char *file)
@@ -131,7 +104,6 @@ int count_line_maap(char *file)
 	int 	reader;
 	char	*lign;
 	
-	// file = "bom";
 	reader = 0;
 	fd = open(file, O_RDONLY);
 	count = -1;
@@ -140,9 +112,7 @@ int count_line_maap(char *file)
 	{
 		lign = get_next_line(fd);
 		free(lign);
-			count++;
-			
-		
+		count++;
 	}
 	close(fd);
 	return (count);
@@ -152,14 +122,11 @@ int count_line_maap(char *file)
 
 void		alloc_lign(char *file, t_game *data)
 {
-	// char	**maap;
 	int		line_count;
+	
 	line_count = 0;
-	// printf("%d\n", line_count);
 	line_count = count_line_maap(file);
-	// if (line_count == 0)
-	// 	return (NULL);
 	data->map = malloc(sizeof(char *) * line_count + 1);
-	// if (!data->map)
+
 		
 }

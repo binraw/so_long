@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/14 15:53:42 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:09:42 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,11 @@ typedef struct game_s
 	void	*mlx_ptr;
 	void	*mlx_win;
 
-	int		width;
-	int		height;
+	// int		width;
+	// int		height;
+	int 	numb_line;
+	int		numb_collectible;
+	int		numb_exit;
 	char 	**map;
 	int		pos_x;
 	int		pos_y;
@@ -92,9 +95,10 @@ void    player_move(t_game *data, int new_y, int new_x);
 void    control_move(t_game *data, int new_y, int new_x);
 
 int check_extension_file(char **argv);
-int		check_side_wall(char **map);
-int		check_wall_map(char **map);
-int     format_check(char **map);
+int		check_side_wall(t_game *data);
+int		check_wall_map(t_game *data);
+int     format_check(t_game *data);
+int		count_elem(t_game *data, char c);
 
 
 #endif

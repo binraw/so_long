@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:20:04 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/14 15:37:29 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/15 11:12:39 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ void    player_move(t_game *data, int new_y, int new_x)
     
     last_x = data->pos_x;
     last_y = data->pos_y;
-    collect = count_collect(data);
+    collect = count_elem(data, 'C');
     if (data->map[new_y][new_x] == '0')
     {
         data->map[last_y][last_x] = '0';

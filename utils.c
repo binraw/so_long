@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:04:02 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/14 15:33:31 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/15 11:12:00 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,49 @@ int set_img(t_game *data)
 
     return 0; // Succès
 }
+// int		count_collect(t_game *data)
+// {
+// 	int count;
+// 	int		y;
+// 	int		i;
+	
 
+// 	y = 0;
+// 	i = 0;
+// 	count = 0;
+// 	while (data->map[y])
+// 	{
+// 		i = 0;
+// 		while(data->map[y][i] != '\n' && data->map[y][i])
+// 		{
+// 			if (data->map[y][i] == 'C')
+// 				count++;
+// 			i++;
+// 		}
+// 		y++;
+// 	}
+// 	return (count);
+// }
+
+int		count_elem(t_game *data, char c)
+{
+	int count;
+	int		y;
+	int		i;
+
+	y = 0;
+	i = 0;
+	count = 0;
+	while (data->map[y])
+	{
+		i = 0;
+		while(data->map[y][i] != '\n' && data->map[y][i])
+		{
+			if (data->map[y][i] == c)
+				count++;
+			i++;
+		}
+		y++;
+	}
+	return (count);
+}
