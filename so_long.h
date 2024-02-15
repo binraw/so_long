@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/15 13:09:42 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:52:53 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,13 @@ int		check_side_wall(t_game *data);
 int		check_wall_map(t_game *data);
 int     format_check(t_game *data);
 int		count_elem(t_game *data, char c);
+int		all_check(t_game *data, char **argv);
+int		check_side_wall(t_game *data);
+int check_number_elem(t_game *data);
+int check_content(t_game *data);
+int	check_valid_map(t_game *data);
+char	**dup_map(t_game *data);
+int	valid_map(t_game *data, char **dup, int y);
 
 
 #endif

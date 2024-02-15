@@ -6,14 +6,35 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:02:20 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/15 13:12:58 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/15 14:33:01 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 // CHANGEZ LES ARGUMENT PAR LA STRUCTURE DATA AVEC LA MAP
-
+int		all_check(t_game *data, char **argv)
+{
+	int check;
+	
+	check = 0;
+	check += format_check(data);
+	printf("check format : %d\n", check);
+	check += check_wall_map(data);
+	printf("check wall : %d\n", check);
+	check += check_side_wall(data);
+	printf("check side : %d\n", check);
+	check += check_extension_file(argv);
+	printf("check exten : %d\n", check);
+	check += check_number_elem(data);
+	printf("check number : %d\n", check);
+	check += check_content(data);
+	printf("check content : %d\n", check);
+	check += check_valid_map(data);
+	// if (check != 0)
+	// 	return (-1);
+	return (check);
+}
 int     format_check(t_game *data)
 {
     int i;
@@ -22,12 +43,12 @@ int     format_check(t_game *data)
 	
 	y = 0;
 	value_base = 0;
-	while (data->map[0][value_base] != '\0')
+	while (data->map[0][value_base] != '\n' || data->map[0][value_base])
 		value_base++;
 	while (data->map[y] != NULL)
 	{
 		i = 0;
-		while (data->map[y][i] != '\0')
+		while (data->map[y][i] != '\n' && data->map[y][i])
 			i++;
 		if (i != value_base)
 			return (-1);
@@ -52,7 +73,7 @@ int		check_wall_map(t_game *data)
 		i++;
 	}
 	i = 0;
-	y = count_line_maap(*map);
+	y = count_line_maap(*data->map);
 	while (data->map[y][i] != '\n')
 	{
 		if (data->map[y][i] != '1')
@@ -83,13 +104,13 @@ int		check_side_wall(t_game *data)
 int check_extension_file(char **argv)
 {
 	int	i;
-	int y;
+	// int y;
 
 	i = 0;
 	while (argv[1][i])
 		i++;
 	i--;
-	if (argv[1][i] != 'r' || argv[1][i -1] != 'e' argv[1][i - 2] != 'b' || argv[1][i - 3] != '.')
+	if (argv[1][i] != 'r' || argv[1][i -1] != 'e' || argv[1][i - 2] != 'b' || argv[1][i - 3] != '.')
 		return (-1);
 	return (0);
 }
@@ -118,7 +139,7 @@ int check_content(t_game *data)
 	while (data->map[y])
 	{
 		i = 0;
-		while (data->map[y][i] != 'n')
+		while (data->map[y][i] != '\n')
 		{
 			if (data->map[y][i] != '1' && data->map[y][i] != '0' && data->map[y][i] != 'P'
 					&& 	data->map[y][i] != 'E' && data->map[y][i] != 'C')
@@ -129,7 +150,7 @@ int check_content(t_game *data)
 		}
 		y++;
 	}
-	reuturn (0);
+	return (0);
 }
 
 // Faire une copie du tableau ! parcourir remplacer autour du P toutes les case accessible par un P et count les C et E (500)fois environs
@@ -150,7 +171,7 @@ int	check_valid_map(t_game *data)
 	y = 1;
 	while (x != 500)
 	{
-	valid_map(duplicate, y);
+	valid_map(data, duplicate, y);
 		y++;
 		if (duplicate[y] == NULL)
 			y = 1;
@@ -169,7 +190,8 @@ char	**dup_map(t_game *data)
 	
 	y = 0;
 	x = data->numb_line;
-	while (x != 0)
+	duplicate = NULL;
+	while (x > 0)
 	{
 		duplicate[y] = ft_strdup(data->map[y]);
 		x--;
@@ -182,23 +204,24 @@ int	valid_map(t_game *data, char **dup, int y)
 	int i;
 
 	i = 0;
-	while (duplicate[y][i] != '\n')
+	while (dup[y][i] != '\n')
 	{
-		if (duplicate[y][i] == '0' && (duplicate[y][i + 1] == 'P' || duplicate[y][i + 1] == 'P'
-				|| duplicate[y + 1][i] == 'P' || duplicate[y - 1][i] == 'P'))
-				duplicate[y][i] = 'P';	
-		if (duplicate[y][i] == 'E' && (duplicate[y][i + 1] == 'P' || duplicate[y][i + 1] == 'P'
-				|| duplicate[y + 1][i] == 'P' || duplicate[y - 1][i] == 'P'))
+		if (dup[y][i] == '0' && (dup[y][i + 1] == 'P' || dup[y][i + 1] == 'P'
+				|| dup[y + 1][i] == 'P' || dup[y - 1][i] == 'P'))
+				dup[y][i] = 'P';	
+		if (dup[y][i] == 'E' && (dup[y][i + 1] == 'P' || dup[y][i + 1] == 'P'
+				|| dup[y + 1][i] == 'P' || dup[y - 1][i] == 'P'))
 			{
-				duplicate[y][i] = 'P';
+				dup[y][i] = 'P';
 				data->numb_exit--;
 			}
-		if (duplicate[y][i] == 'C' && (duplicate[y][i + 1] == 'P' || duplicate[y][i + 1] == 'P'
-				|| duplicate[y + 1][i] == 'P' || duplicate[y - 1][i] == 'P'))
+		if (dup[y][i] == 'C' && (dup[y][i + 1] == 'P' || dup[y][i + 1] == 'P'
+				|| dup[y + 1][i] == 'P' || dup[y - 1][i] == 'P'))
 			{
-				duplicate[y][i] = 'P';
+				dup[y][i] = 'P';
 				data->numb_collectible--;
 			}
 		i++;
 	}
+	return (0);
 }

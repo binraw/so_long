@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:01:41 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/14 12:59:09 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/15 14:35:16 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 int	main(int argc, char **argv)
 {
 	t_game	vars;
+	int fail;
 	// t_img *img;
 	// void *img;
 	// int img_width;
@@ -40,6 +41,14 @@ int	main(int argc, char **argv)
 	
 	vars.mlx_ptr = mlx_init();
 	read_maap(argv[1], &vars);
+	fail = all_check(&vars, argv);
+	printf("%d\n", fail);
+	if (all_check(&vars, argv) != 0)
+	{
+		// close(argv[1]);
+		printf("Error map");
+		exit(EXIT_FAILURE);
+	}
 	vars.mlx_win = mlx_new_window(vars.mlx_ptr, (ft_strlen(vars.map[0]) - 1) * 50, (count_line_maap(argv[1])) * 50, "Hello world!");
 
 	vars.count_left = 0;
