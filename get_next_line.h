@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:23:31 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/01/26 15:12:29 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:01:52 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # endif
 
 char		*get_next_line(int fd);
-char		*ft_strchr( char *string, int searchedChar);
-char		*ft_strdup( char *source);
-char		*ft_strjoin(char	*s1, char	*s2);
-size_t		ft_strlen( char *str);
+char		*ft_strchr_get( char *string, int searchedChar);
+char		*ft_strdup_get( char *source);
+char		*ft_strjoin_get(char	*s1, char	*s2);
+size_t		ft_strlen_get( char *str);
 #endif

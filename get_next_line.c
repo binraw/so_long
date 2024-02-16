@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:59:11 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/08 14:51:30 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:03:51 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ char	*get_next_line(int fd)
 	len = 0;
 	len = cut_lign(str);
 	finaly = finaly_str(str, len);
-	if (ft_strlen(str) != len)
-		ft_memmove(buffer, str + len + 1, ft_strlen(str) - cut_lign(str));
+	if (ft_strlen_get(str) != len)
+		ft_memmove(buffer, str + len + 1, ft_strlen_get(str) - cut_lign(str));
 	else
 		buffer[0] = '\0';
 	free(str);
@@ -52,10 +52,10 @@ char	*create_str(char *buffer, int fd)
 	ssize_t		re;
 
 	re = 1;
-	str = ft_strdup(buffer);
+	str = ft_strdup_get(buffer);
 	if (!str)
 		return (NULL);
-	while (re > 0 && (!ft_strchr(str, '\n')))
+	while (re > 0 && (!ft_strchr_get(str, '\n')))
 	{
 		re = read(fd, buffer, BUFFER_SIZE);
 		if (re != 0)
@@ -66,7 +66,7 @@ char	*create_str(char *buffer, int fd)
 			return (NULL);
 		}
 		if (re != 0)
-			str = ft_strjoin(str, buffer);
+			str = ft_strjoin_get(str, buffer);
 		if (!str)
 			return (NULL);
 	}
@@ -91,7 +91,7 @@ char	*finaly_str(char *buffer, size_t len)
 		}
 		finaly[i] = 0;
 	}
-	if (ft_strlen(buffer) > len)
+	if (ft_strlen_get(buffer) > len)
 		finaly[len] = '\n';
 	finaly[len + 1] = '\0';
 	return (finaly);

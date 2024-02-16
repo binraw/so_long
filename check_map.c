@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:02:20 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/16 13:52:50 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:06:06 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,9 +157,6 @@ int check_content(t_game *data)
 	return (0);
 }
 
-// Faire une copie du tableau ! parcourir remplacer autour du P toutes les case accessible par un P et count les C et E (500)fois environs
-
-
 int	check_valid_map(t_game *data)
 {
 	int i;
@@ -199,7 +196,7 @@ char	**dup_map(t_game *data)
 	duplicate = (char **)malloc(sizeof(char *) * (data->numb_line));
 	while (y < data->numb_line)
 	{
-		duplicate[y] = ft_strdup(data->map[y]);
+		duplicate[y] = ft_strdup_get(data->map[y]);
 		y++;
 	}
 	return (duplicate);

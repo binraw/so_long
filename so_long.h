@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/16 11:56:02 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/16 14:39:33 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 #	include <stdlib.h>
 #	include <stdio.h>
-
+#	include "printf/ft_printf.h"
 #	include "get_next_line.h"
 
 typedef struct img_s

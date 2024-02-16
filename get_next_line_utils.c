@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:46:52 by rtruvelo          #+#    #+#             */
-/*   Updated: 2023/12/13 17:13:56 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:04:58 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strjoin(char	*s1, char	*s2);
 size_t	ft_strlen(char	*str);
 char	*ft_concate_str(char	*s1, char	*s2, char *dest);
 
-char	*ft_strchr(char *string, int searchedChar)
+char	*ft_strchr_get(char *string, int searchedChar)
 {
 	size_t	i;
 	char	*p;
@@ -43,17 +43,17 @@ char	*ft_strchr(char *string, int searchedChar)
 	return (0);
 }
 
-char	*ft_strjoin(char	*s1, char	*s2)
+char	*ft_strjoin_get(char	*s1, char	*s2)
 {
 	char	*dest;
 
 	if (!s1 && !s2)
 		return (NULL);
 	if (!s1)
-		return (ft_strdup(s2));
+		return (ft_strdup_get(s2));
 	if (!s2)
-		return (ft_strdup(s1));
-	dest = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+		return (ft_strdup_get(s1));
+	dest = malloc(sizeof(char) * (ft_strlen_get(s1) + ft_strlen_get(s2) + 1));
 	if (!dest)
 	{
 		free(s1);
@@ -79,7 +79,7 @@ char	*ft_concate_str(char	*s1, char	*s2, char *dest)
 	return (dest);
 }
 
-char	*ft_strdup(char	*source)
+char	*ft_strdup_get(char	*source)
 {
 	size_t	i;
 	size_t	y;
@@ -88,7 +88,7 @@ char	*ft_strdup(char	*source)
 	if (!source)
 		return (NULL);
 	y = 0;
-	i = ft_strlen(source);
+	i = ft_strlen_get(source);
 	pointer = malloc((i + 1) * sizeof(char));
 	if (!pointer)
 		return (NULL);
@@ -101,7 +101,7 @@ char	*ft_strdup(char	*source)
 	return (pointer);
 }
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen_get(char *str)
 {
 	size_t	i;
 
