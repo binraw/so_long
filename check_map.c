@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:02:20 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/16 11:55:28 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:52:50 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,9 +124,6 @@ int check_number_elem(t_game *data)
 	i = count_elem(data, 'E');
 	y = count_elem(data, 'P');
 	c = count_elem(data, 'C');
-	// printf("%d\n", i);
-	// printf("%d\n", y);
-	// printf("%d\n", c);
 	if (i > 1 || i == 0)
 		return (-1);
 	if (y > 1 || y == 0)
@@ -173,21 +170,21 @@ int	check_valid_map(t_game *data)
 	i = 0;
 	x = 0;
 	data->numb_collectible = count_elem(data, 'C');
+	
 	data->numb_exit = count_elem(data, 'E');
 	duplicate = dup_map(data);
 	y = 1;
 	while (x != 500)
 	{
-	if (duplicate[y] == NULL)
-		y = 1;
-	if (y >= data->numb_line)
-		y = 1;
-	valid_map(data, duplicate, y);
-	
-	y++;
-	
+		if (duplicate[y] == NULL)
+			y = 1;
+		if (y + 1 >= data->numb_line)
+			y = 1;
+		valid_map(data, duplicate, y);
+		y++;
 		x++;
 	}
+	free(duplicate);
 	if (data->numb_collectible != 0 || data->numb_exit != 0)
 		return (-1);
 	return (0);
@@ -207,43 +204,20 @@ char	**dup_map(t_game *data)
 	}
 	return (duplicate);
 }
-// int	valid_map(t_game *data, char **dup, int y)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while (dup[y][i] != '\n' && dup[y][i])
-// 	{
-// 		printf("%c\n", dup[y][i]);
-// 		if (dup[y][i] == '0' && (dup[y][i + 1] == 'P' || dup[y][i + 1] == 'P'
-// 				|| dup[y + 1][i] == 'P' || dup[y - 1][i] == 'P'))
-// 				dup[y][i] = 'P';	
-// 		else if (dup[y][i] == 'E' && (dup[y][i + 1] == 'P' || dup[y][i + 1] == 'P'
-// 				|| dup[y + 1][i] == 'P' || dup[y - 1][i] == 'P'))
-// 			{
-// 				dup[y][i] = 'P';
-// 				data->numb_exit--;
-// 			}
-// 		else if (dup[y][i] == 'C' && (dup[y][i + 1] == 'P' || dup[y][i + 1] == 'P'
-// 				|| dup[y + 1][i] == 'P' || dup[y - 1][i] == 'P'))
-// 			{
-// 				dup[y][i] = 'P';
-// 				data->numb_collectible--;
-// 			}
-// 		i++;
-// 	}
-// 	return (0);
-// }
-
 
 void	good_path(t_game *data, char **dup, int i, int y)
 {
-	if (dup[y][i] != 1)
+	if (dup[y][i] != '1')
 	{
 		if (dup[y][i] == 'C')
 			data->numb_collectible--;
-		else if (dup[y][i] == 'C')
+		else if (dup[y][i] == 'E')
+		{
 			data->numb_exit--;
+			dup[y][i] = '1';
+		}
+			
+		if (dup[y][i] != 'E')
 		dup[y][i] = 'P';
 	}
 }
@@ -251,8 +225,8 @@ int	valid_map(t_game *data, char **dup, int y)
 {
 	int i;
 
-	i = 0;
-	while (dup[y][i] != '\n' && dup[y][i])
+	i = 1;
+	while (dup[y][i] != '\n' && dup[y][i + 1] != '\0')
 	{
 		if (dup[y][i] == 'P')
 		{
@@ -260,7 +234,6 @@ int	valid_map(t_game *data, char **dup, int y)
 			good_path(data, dup, i - 1, y);
 			good_path(data, dup, i, y + 1);
 			good_path(data, dup, i, y - 1);
-			
 		}
 		i++;
 	}
