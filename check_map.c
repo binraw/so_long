@@ -6,14 +6,14 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:02:20 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/15 14:33:01 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:55:28 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 // CHANGEZ LES ARGUMENT PAR LA STRUCTURE DATA AVEC LA MAP
-int		all_check(t_game *data, char **argv)
+int		all_check_map(t_game *data, char **argv)
 {
 	int check;
 	
@@ -31,8 +31,8 @@ int		all_check(t_game *data, char **argv)
 	check += check_content(data);
 	printf("check content : %d\n", check);
 	check += check_valid_map(data);
-	// if (check != 0)
-	// 	return (-1);
+	printf("check valid : %d\n", check);
+	
 	return (check);
 }
 int     format_check(t_game *data)
@@ -43,7 +43,7 @@ int     format_check(t_game *data)
 	
 	y = 0;
 	value_base = 0;
-	while (data->map[0][value_base] != '\n' || data->map[0][value_base])
+	while (data->map[0][value_base] != '\n' && data->map[0][value_base])
 		value_base++;
 	while (data->map[y] != NULL)
 	{
@@ -119,12 +119,19 @@ int check_number_elem(t_game *data)
 {
 	int	i;
 	int y;
+	int c;
 
 	i = count_elem(data, 'E');
 	y = count_elem(data, 'P');
+	c = count_elem(data, 'C');
+	// printf("%d\n", i);
+	// printf("%d\n", y);
+	// printf("%d\n", c);
 	if (i > 1 || i == 0)
 		return (-1);
 	if (y > 1 || y == 0)
+		return (-1);
+	if (c == 0)
 		return (-1);
 	return (0);
 }
@@ -139,7 +146,7 @@ int check_content(t_game *data)
 	while (data->map[y])
 	{
 		i = 0;
-		while (data->map[y][i] != '\n')
+		while (data->map[y][i] != '\n' && data->map[y][i] )
 		{
 			if (data->map[y][i] != '1' && data->map[y][i] != '0' && data->map[y][i] != 'P'
 					&& 	data->map[y][i] != 'E' && data->map[y][i] != 'C')
@@ -171,10 +178,14 @@ int	check_valid_map(t_game *data)
 	y = 1;
 	while (x != 500)
 	{
+	if (duplicate[y] == NULL)
+		y = 1;
+	if (y >= data->numb_line)
+		y = 1;
 	valid_map(data, duplicate, y);
-		y++;
-		if (duplicate[y] == NULL)
-			y = 1;
+	
+	y++;
+	
 		x++;
 	}
 	if (data->numb_collectible != 0 || data->numb_exit != 0)
@@ -185,42 +196,72 @@ int	check_valid_map(t_game *data)
 char	**dup_map(t_game *data)
 {
 	int 	y;
-	int 	x;
 	char	**duplicate;
 	
 	y = 0;
-	x = data->numb_line;
-	duplicate = NULL;
-	while (x > 0)
+	duplicate = (char **)malloc(sizeof(char *) * (data->numb_line));
+	while (y < data->numb_line)
 	{
 		duplicate[y] = ft_strdup(data->map[y]);
-		x--;
 		y++;
 	}
 	return (duplicate);
+}
+// int	valid_map(t_game *data, char **dup, int y)
+// {
+// 	int i;
+
+// 	i = 0;
+// 	while (dup[y][i] != '\n' && dup[y][i])
+// 	{
+// 		printf("%c\n", dup[y][i]);
+// 		if (dup[y][i] == '0' && (dup[y][i + 1] == 'P' || dup[y][i + 1] == 'P'
+// 				|| dup[y + 1][i] == 'P' || dup[y - 1][i] == 'P'))
+// 				dup[y][i] = 'P';	
+// 		else if (dup[y][i] == 'E' && (dup[y][i + 1] == 'P' || dup[y][i + 1] == 'P'
+// 				|| dup[y + 1][i] == 'P' || dup[y - 1][i] == 'P'))
+// 			{
+// 				dup[y][i] = 'P';
+// 				data->numb_exit--;
+// 			}
+// 		else if (dup[y][i] == 'C' && (dup[y][i + 1] == 'P' || dup[y][i + 1] == 'P'
+// 				|| dup[y + 1][i] == 'P' || dup[y - 1][i] == 'P'))
+// 			{
+// 				dup[y][i] = 'P';
+// 				data->numb_collectible--;
+// 			}
+// 		i++;
+// 	}
+// 	return (0);
+// }
+
+
+void	good_path(t_game *data, char **dup, int i, int y)
+{
+	if (dup[y][i] != 1)
+	{
+		if (dup[y][i] == 'C')
+			data->numb_collectible--;
+		else if (dup[y][i] == 'C')
+			data->numb_exit--;
+		dup[y][i] = 'P';
+	}
 }
 int	valid_map(t_game *data, char **dup, int y)
 {
 	int i;
 
 	i = 0;
-	while (dup[y][i] != '\n')
+	while (dup[y][i] != '\n' && dup[y][i])
 	{
-		if (dup[y][i] == '0' && (dup[y][i + 1] == 'P' || dup[y][i + 1] == 'P'
-				|| dup[y + 1][i] == 'P' || dup[y - 1][i] == 'P'))
-				dup[y][i] = 'P';	
-		if (dup[y][i] == 'E' && (dup[y][i + 1] == 'P' || dup[y][i + 1] == 'P'
-				|| dup[y + 1][i] == 'P' || dup[y - 1][i] == 'P'))
-			{
-				dup[y][i] = 'P';
-				data->numb_exit--;
-			}
-		if (dup[y][i] == 'C' && (dup[y][i + 1] == 'P' || dup[y][i + 1] == 'P'
-				|| dup[y + 1][i] == 'P' || dup[y - 1][i] == 'P'))
-			{
-				dup[y][i] = 'P';
-				data->numb_collectible--;
-			}
+		if (dup[y][i] == 'P')
+		{
+			good_path(data, dup, i + 1, y);
+			good_path(data, dup, i - 1, y);
+			good_path(data, dup, i, y + 1);
+			good_path(data, dup, i, y - 1);
+			
+		}
 		i++;
 	}
 	return (0);
