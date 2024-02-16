@@ -43,8 +43,6 @@ fclean: clean
 	@cd $(PRINTFDIR) && make fclean
 
 
-
-
 re: fclean all 
 
 .PHONY: all clean fclean re 

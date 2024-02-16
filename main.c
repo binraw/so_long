@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:01:41 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/16 15:19:28 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:02:20 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,7 @@
 
 
 
-// int	close(t_game *vars)
-// {
-// 	mlx_destroy_window(vars->mlx_ptr, vars->mlx_win);
-// 	return (0);
-// }
+
 
 int	main(int argc, char **argv)
 {
@@ -41,7 +37,6 @@ int	main(int argc, char **argv)
 
 	if ((all_check_map(&vars, argv)) != 0)
 	{
-		// close(argv[1]);
 		ft_printf("Error map");
 		exit(EXIT_FAILURE);
 	}
@@ -51,6 +46,7 @@ int	main(int argc, char **argv)
 	vars.reta_right = 0;
 	vars.count_back = 0;
 	vars.count_face = 0;
+	vars.move = 0;
 	
 
 	set_img(&vars);

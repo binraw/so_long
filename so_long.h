@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/16 14:39:33 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:02:44 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct game_s
 	char 	**map;
 	int		pos_x;
 	int		pos_y;
-	// int		collectible;
+	int		move;
 	int		count_left;
 	int		reta_right;
 	int		count_back;
@@ -65,18 +65,7 @@ typedef struct game_s
 	
 }	t_game;
 
-// typedef	struct model_s
-// {
-// 	WALL = '1',
-// 	COLLECTABLE = 'C',
-// 	PLAYER = 'P',
-// 	EXIT = 'E',
-// 	FLOOR = '0'
-// }	t_model;
 
-
-
-// void print_img(t_game *data);
 int set_img(t_game *data);
 void	print_img(t_game *data, void *img, int x, int y);
 
@@ -107,5 +96,6 @@ int	check_valid_map(t_game *data);
 char	**dup_map(t_game *data);
 int	valid_map(t_game *data, char **dup, int y);
 void	good_path(t_game *data, char **dup, int i, int y);
+void    screen_number_move(t_game *data);
 
 #endif

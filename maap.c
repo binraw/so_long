@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/15 11:50:00 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:48:49 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,12 @@
 
 void init_maap(t_game *data)
 {
-    // char	**maap;
 	int		y;
 	int		i;
 	
 
 	y = 0;
 	i = 0;
-	// printf("%d\n", i);
-    // read_maap(argv[1], data);
 	if (!data->map)
 		return ;
 
@@ -33,10 +30,8 @@ void init_maap(t_game *data)
 		while(data->map[y][i] != '\n' && data->map[y][i])
 		{
 			screen_model(data->map[y][i], data, i, y);
-			// printf("%d\n", i);
 			i++;
 		}
-		// printf("%d\n", y);
 		y++;
 	}
 	
@@ -72,10 +67,8 @@ void	screen_model(char c, t_game *data, int i, int y)
 
 void	read_maap(char *file, t_game *data)
 {
-    // char	**maap;
     int		i;
     int		fd;
-	// int count;
 
 	i = 0;
 	fd = 0;
@@ -119,7 +112,6 @@ int count_line_maap(char *file)
 }
 
 
-
 void		alloc_lign(char *file, t_game *data)
 {
 	int		line_count;
@@ -127,6 +119,4 @@ void		alloc_lign(char *file, t_game *data)
 	line_count = 0;
 	line_count = count_line_maap(file);
 	data->map = malloc(sizeof(char *) * line_count + 1);
-
-		
 }

@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:20:04 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/15 11:12:39 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:03:20 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 int    key_hook(int keycode, t_game *data)
 {
+    unsigned int i;
+    
+    i = 0;
     if (keycode == XK_w || keycode == XK_Up)
     {
         if (data->count_face == 0)
@@ -24,6 +27,7 @@ int    key_hook(int keycode, t_game *data)
             data->img.bag = "./assets/caisse1.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
+            screen_number_move(data);
         }
         else 
         {
@@ -35,6 +39,7 @@ int    key_hook(int keycode, t_game *data)
             data->img.bag = "./assets/caisse4.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
+            screen_number_move(data);
         }
     }
      else if (keycode == XK_s || keycode == XK_Down)
@@ -47,6 +52,7 @@ int    key_hook(int keycode, t_game *data)
                 data->img.bag = "./assets/caisse3.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
+            screen_number_move(data);
         }
         else 
         {
@@ -61,6 +67,7 @@ int    key_hook(int keycode, t_game *data)
             data->img.wall = "./assets/fire.xpm";
 	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.wall, &(data->img.width), &(data->img.height));
+            screen_number_move(data);
         }
     }
      else if (keycode == XK_a || keycode == XK_Left)
@@ -73,6 +80,7 @@ int    key_hook(int keycode, t_game *data)
                 data->img.bag = "./assets/caisse1.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
+            screen_number_move(data);
         }
         else 
         {
@@ -87,6 +95,7 @@ int    key_hook(int keycode, t_game *data)
             data->img.wall = "./assets/fire.xpm";
 	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.wall, &(data->img.width), &(data->img.height));
+            screen_number_move(data);
         }
         
     }
@@ -100,6 +109,7 @@ int    key_hook(int keycode, t_game *data)
                 data->img.bag = "./assets/caisse4.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
+            screen_number_move(data);
         }
         else 
         {
@@ -114,6 +124,7 @@ int    key_hook(int keycode, t_game *data)
             data->img.wall = "./assets/fire.xpm";
 	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.wall, &(data->img.width), &(data->img.height));
+            screen_number_move(data);
         }
     }
     else if (keycode == XK_Escape)
@@ -215,4 +226,9 @@ void    control_move(t_game *data, int new_y, int new_x)
 	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.wall, &(data->img.width), &(data->img.height));
     }
+}
+void    screen_number_move(t_game *data)
+{
+    data->move++;
+    ft_printf("Your Score : %d\n", data->move);
 }
