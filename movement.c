@@ -20,6 +20,15 @@ void    updapte_img_bag(t_game *data, char *img_path)
 			data->img.bag, &(data->img.width), &(data->img.height));
 }
 
+void    updapte_img_player(t_game *data, char *img_path)
+{
+     mlx_destroy_image(data->mlx_ptr, data->img.img_player);
+    data->img.player = img_path;
+    data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
+			data->img.player, &(data->img.width), &(data->img.height));
+}
+
+
 int    key_hook(int keycode, t_game *data)
 {
 
@@ -36,10 +45,8 @@ int    key_hook(int keycode, t_game *data)
         }
         else 
         {
-             data->img.player = "./assets/back_2.xpm";
-        data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.player, &(data->img.width), &(data->img.height));
-            
+
+            updapte_img_player(data,  "./assets/back_2.xpm");
             player_move(data, data->pos_y - 1 , data->pos_x);
             updapte_img_bag(data, "./assets/caisse4.xpm");
 
@@ -59,9 +66,8 @@ int    key_hook(int keycode, t_game *data)
         }
         else 
         {
-             data->img.player = "./assets/face_2.xpm";
-        data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.player, &(data->img.width), &(data->img.height));
+
+        updapte_img_player(data,  "./assets/face_2.xpm");
             
             player_move(data, data->pos_y + 1 , data->pos_x);
             updapte_img_bag(data, "./assets/caisse1.xpm");
@@ -85,9 +91,8 @@ int    key_hook(int keycode, t_game *data)
         }
         else 
         {
-             data->img.player = "./assets/left_2.xpm";
-        data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.player, &(data->img.width), &(data->img.height));
+
+        updapte_img_player(data,  "./assets/left_2.xpm");
             
             player_move(data, data->pos_y , data->pos_x - 1);
             updapte_img_bag(data, "./assets/caisse4.xpm");
@@ -112,9 +117,8 @@ int    key_hook(int keycode, t_game *data)
         }
         else 
         {
-             data->img.player = "./assets/right_2.xpm";
-        data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.player, &(data->img.width), &(data->img.height));
+
+        updapte_img_player(data,  "./assets/right_2.xpm");
             
             player_move(data, data->pos_y , data->pos_x + 1);
             updapte_img_bag(data, "./assets/caisse4.xpm");
@@ -177,9 +181,8 @@ void    control_move(t_game *data, int new_y, int new_x)
     last_y = data->pos_y;
     if (last_x < new_x)
     {
-        data->img.player = "./assets/right_run.xpm";
-        data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.player, &(data->img.width), &(data->img.height));
+
+        updapte_img_player(data,  "./assets/right_run.xpm");
             updapte_img_bag(data, "./assets/caisse4.xpm");
   
             data->img.wall = "./assets/fire3.xpm";
@@ -189,9 +192,8 @@ void    control_move(t_game *data, int new_y, int new_x)
     }
     if (last_x > new_x)
     {
-        data->img.player = "./assets/left_run.xpm";
-        data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.player, &(data->img.width), &(data->img.height));
+
+        updapte_img_player(data,  "./assets/left_run.xpm");
             updapte_img_bag(data, "./assets/caisse2.xpm");
  
             data->img.wall = "./assets/fire2.xpm";
@@ -201,9 +203,8 @@ void    control_move(t_game *data, int new_y, int new_x)
     }
       if (last_y > new_y)
     {
-        data->img.player = "./assets/back_run.xpm";
-        data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.player, &(data->img.width), &(data->img.height));
+
+        updapte_img_player(data,  "./assets/back_run.xpm");
             updapte_img_bag(data, "./assets/caisse4.xpm");
   
             data->img.wall = "./assets/fire2.xpm";
@@ -212,9 +213,8 @@ void    control_move(t_game *data, int new_y, int new_x)
     }
        if (last_y < new_y)
     {
-        data->img.player = "./assets/face_run.xpm";
-        data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.player, &(data->img.width), &(data->img.height));
+
+        updapte_img_player(data,  "./assets/face_run.xpm");
             updapte_img_bag(data, "./assets/caisse2.xpm");
 
             data->img.wall = "./assets/fire3.xpm";
