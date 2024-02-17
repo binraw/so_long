@@ -28,6 +28,13 @@ void    updapte_img_player(t_game *data, char *img_path)
 			data->img.player, &(data->img.width), &(data->img.height));
 }
 
+void    updapte_img_wall(t_game *data, char *img_path)
+{
+     mlx_destroy_image(data->mlx_ptr, data->img.img_wall);
+    data->img.wall = img_path;
+    data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
+			data->img.wall, &(data->img.width), &(data->img.height));
+}
 
 int    key_hook(int keycode, t_game *data)
 {
@@ -40,16 +47,13 @@ int    key_hook(int keycode, t_game *data)
         player_move(data, data->pos_y - 1, data->pos_x);
         data->count_face = 1;
         updapte_img_bag(data, "./assets/caisse1.xpm");
-
-            screen_number_move(data);
+        screen_number_move(data);
         }
         else 
         {
-
             updapte_img_player(data,  "./assets/back_2.xpm");
             player_move(data, data->pos_y - 1 , data->pos_x);
             updapte_img_bag(data, "./assets/caisse4.xpm");
-
             screen_number_move(data);
         }
     }
@@ -71,10 +75,8 @@ int    key_hook(int keycode, t_game *data)
             
             player_move(data, data->pos_y + 1 , data->pos_x);
             updapte_img_bag(data, "./assets/caisse1.xpm");
+ updapte_img_wall(data,  "./assets/fire.xpm");
 
-            data->img.wall = "./assets/fire.xpm";
-	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.wall, &(data->img.width), &(data->img.height));
             screen_number_move(data);
         }
     }
@@ -96,10 +98,8 @@ int    key_hook(int keycode, t_game *data)
             
             player_move(data, data->pos_y , data->pos_x - 1);
             updapte_img_bag(data, "./assets/caisse4.xpm");
+ updapte_img_wall(data,  "./assets/fire.xpm");
 
-            data->img.wall = "./assets/fire.xpm";
-	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.wall, &(data->img.width), &(data->img.height));
             screen_number_move(data);
         }
         
@@ -122,10 +122,8 @@ int    key_hook(int keycode, t_game *data)
             
             player_move(data, data->pos_y , data->pos_x + 1);
             updapte_img_bag(data, "./assets/caisse4.xpm");
-  
-            data->img.wall = "./assets/fire.xpm";
-	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.wall, &(data->img.width), &(data->img.height));
+   updapte_img_wall(data,  "./assets/fire.xpm");
+
             screen_number_move(data);
         }
     }
@@ -184,10 +182,8 @@ void    control_move(t_game *data, int new_y, int new_x)
 
         updapte_img_player(data,  "./assets/right_run.xpm");
             updapte_img_bag(data, "./assets/caisse4.xpm");
-  
-            data->img.wall = "./assets/fire3.xpm";
-	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.wall, &(data->img.width), &(data->img.height));
+   updapte_img_wall(data,  "./assets/fire3.xpm");
+
         
     }
     if (last_x > new_x)
@@ -195,10 +191,8 @@ void    control_move(t_game *data, int new_y, int new_x)
 
         updapte_img_player(data,  "./assets/left_run.xpm");
             updapte_img_bag(data, "./assets/caisse2.xpm");
- 
-            data->img.wall = "./assets/fire2.xpm";
-	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.wall, &(data->img.width), &(data->img.height));
+  updapte_img_wall(data,  "./assets/fire2.xpm");
+
             
     }
       if (last_y > new_y)
@@ -206,20 +200,16 @@ void    control_move(t_game *data, int new_y, int new_x)
 
         updapte_img_player(data,  "./assets/back_run.xpm");
             updapte_img_bag(data, "./assets/caisse4.xpm");
-  
-            data->img.wall = "./assets/fire2.xpm";
-	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.wall, &(data->img.width), &(data->img.height));
+   updapte_img_wall(data,  "./assets/fire2.xpm");
+ 
     }
        if (last_y < new_y)
     {
 
         updapte_img_player(data,  "./assets/face_run.xpm");
             updapte_img_bag(data, "./assets/caisse2.xpm");
-
-            data->img.wall = "./assets/fire3.xpm";
-	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
-			data->img.wall, &(data->img.width), &(data->img.height));
+ updapte_img_wall(data,  "./assets/fire3.xpm");
+ 
     }
 }
 void    screen_number_move(t_game *data)
