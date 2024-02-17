@@ -97,5 +97,7 @@ char	**dup_map(t_game *data);
 int	valid_map(t_game *data, char **dup, int y);
 void	good_path(t_game *data, char **dup, int i, int y);
 void    screen_number_move(t_game *data);
+void	destroy_img(t_game *data);
+void	destroy_map(t_game *data);
 
 #endif
