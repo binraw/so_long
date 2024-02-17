@@ -145,6 +145,14 @@ int    key_hook(int keycode, t_game *data)
     return (0);
 }
 
+void	reset_count_move(t_game *data)
+{
+	data->count_left = 0;
+    data->reta_right = 0;
+    data->count_face = 0;
+    data->count_back = 0;
+}
+
 
 void    player_move(t_game *data, int new_y, int new_x)
 {
@@ -172,14 +180,20 @@ void    player_move(t_game *data, int new_y, int new_x)
     }
     else if (data->map[new_y][new_x] == 'E' && collect == 0)
     {
+		destroy_img(data);
         exit(EXIT_SUCCESS);
     }
-    data->count_left = 0;
-    data->reta_right = 0;
-    data->count_face = 0;
-    data->count_back = 0;
+	reset_count_move(data);
     init_maap(data);
 }
+
+void	update_animation(t_game *data, char *player_path, char *bag_path, char *wall_path)
+{
+	updapte_img_player(data,  player_path);
+    updapte_img_bag(data, bag_path);
+    updapte_img_wall(data,  wall_path);
+}
+
 
 void    control_move(t_game *data, int new_y, int new_x)
 {
@@ -189,33 +203,17 @@ void    control_move(t_game *data, int new_y, int new_x)
     last_x = data->pos_x;
     last_y = data->pos_y;
     if (last_x < new_x)
-    {
-        updapte_img_player(data,  "./assets/right_run.xpm");
-        updapte_img_bag(data, "./assets/caisse4.xpm");
-        updapte_img_wall(data,  "./assets/fire3.xpm");
-    }
-    if (last_x > new_x)
-    {
-        updapte_img_player(data,  "./assets/left_run.xpm");
-        updapte_img_bag(data, "./assets/caisse2.xpm");
-  		updapte_img_wall(data,  "./assets/fire2.xpm");
+		update_animation(data, "./assets/right_run.xpm", "./assets/caisse4.xpm", "./assets/fire3.xpm" );
 
-            
-    }
+    if (last_x > new_x)
+		update_animation(data, "./assets/left_run.xpm", "./assets/caisse2.xpm", "./assets/fire2.xpm" );
+
       if (last_y > new_y)
-    {
-        updapte_img_player(data,  "./assets/back_run.xpm");
-        updapte_img_bag(data, "./assets/caisse4.xpm");
-        updapte_img_wall(data,  "./assets/fire2.xpm");
- 
-    }
+		update_animation(data, "./assets/back_run.xpm", "./assets/caisse4.xpm", "./assets/fire2.xpm" );
+
        if (last_y < new_y)
-    {
-        updapte_img_player(data,  "./assets/face_run.xpm");
-        updapte_img_bag(data, "./assets/caisse2.xpm");
-        updapte_img_wall(data,  "./assets/fire3.xpm");
+		update_animation(data,"./assets/face_run.xpm", "./assets/caisse2.xpm" , "./assets/fire3.xpm");
  
-    }
 }
 
 void    screen_number_move(t_game *data)
