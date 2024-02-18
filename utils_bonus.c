@@ -45,8 +45,8 @@ int set_img(t_game *data)
 	data->img.bag = "./assets/caisse1.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
-    data->img.enemy = "./assets/monstre.xpm";
-    data->img.img_enemy = mlx_xpm_file_to_image(data->mlx_ptr,
+	data->img.enemy = "./assets/monstre.xpm";
+	data->img.img_enemy = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.enemy, &(data->img.width), &(data->img.height));
 
 //possibiliter de faire une seule fonction qui initialise toutes les images peut etre possible de le faire pour le changer en donnant un nom du style : variable = enfaite data->img.wall par exemple
