@@ -37,26 +37,16 @@ void init_maap(t_game *data)
 	
 }
 
-
-
 void	screen_model(char c, t_game *data, int i, int y)
 {
 	if (c == '1')
-	{
 		print_img(data, data->img.img_wall, i, y);
-	}
 	if (c == '0')
-	{
 		print_img(data, data->img.img_background, i, y);
-	}
 	if (c == 'C')
-	{
 		print_img(data, data->img.img_bag, i, y);
-	}
 	if (c == 'E')
-	{
 		print_img(data, data->img.img_door, i, y);
-	}
     if (c == 'A')
     {
         print_img(data, data->img.img_enemy, i, y);
