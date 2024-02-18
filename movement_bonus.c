@@ -186,28 +186,32 @@ void    enemy_move(t_game *data, int new_y, int new_x)
 }
 
 
-void    player_move(t_game *data, int new_y, int new_x)
+void move(t_game *data, int new_y, int new_x)
 {
     int	last_x;
 	int	last_y;
-    int collect;
     
     last_x = data->pos_x;
     last_y = data->pos_y;
+    data->map[last_y][last_x] = '0';
+    data->map[new_y][new_x] = 'P';
+    data->pos_x = new_x;
+    data->pos_y = new_y;
+}
+
+
+void    player_move(t_game *data, int new_y, int new_x)
+{
+    int collect;
+    
     collect = count_elem(data, 'C');
     if (data->map[new_y][new_x] == '0')
     {
-        data->map[last_y][last_x] = '0';
-        data->map[new_y][new_x] = 'P';
-        data->pos_x = new_x;
-        data->pos_y = new_y;
+        move(data, new_y, new_x);
     }
     else if (data->map[new_y][new_x] == 'C')
     {
-        data->map[last_y][last_x] = '0';
-        data->map[new_y][new_x] = 'P';
-        data->pos_x = new_x;
-        data->pos_y = new_y;
+        move(data, new_y, new_x);
         collect--;
     }
         else if (data->map[new_y][new_x] == 'A')
