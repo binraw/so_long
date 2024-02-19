@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:01:41 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/19 09:37:32 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:18:10 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-
-#include "so_long.h"
+#include "so_long_bonus.h"
+#include <pthread.h>
 
 int	main(int argc, char **argv)
 {
 	t_game	vars;
+	// pthread_t anim_thread;
 
 	(void)argc;
 	
@@ -38,9 +39,19 @@ int	main(int argc, char **argv)
 	vars.count_back = 0;
 	vars.count_face = 0;
 	vars.move = 0;
+
 	set_img(&vars);
 	init_maap(&vars);
+	 
 	mlx_key_hook(vars.mlx_win, key_hook, &vars);
+	
+	 mlx_loop_hook(vars.mlx_ptr, &animation_wall, &vars);
+	
+		// animation_wall(&vars);
+		//  pthread_join(anim_thread, NULL);
 	mlx_loop(vars.mlx_ptr);
+	
 	return (0);
 }
+
+

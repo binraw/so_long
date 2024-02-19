@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: truv <truv@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:02:20 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/18 11:45:45 by truv             ###   ########.fr       */
+/*   Updated: 2024/02/19 10:27:27 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ int		all_check_map(t_game *data, char **argv)
 	int check;
 	
 	check = 0;
+	printf("check map : %s\n", data->map[0]);
+	printf("check map : %s\n", data->map[1]);
+	printf("check map : %s\n", data->map[2]);
+	printf("check map : %s\n", data->map[3]);
 	check += format_check(data);
 	printf("check format : %d\n", check);
 	check += check_wall_map(data);
@@ -166,7 +170,6 @@ int	check_valid_map(t_game *data)
 	i = 0;
 	x = 0;
 	data->numb_collectible = count_elem(data, 'C');
-	
 	data->numb_exit = count_elem(data, 'E');
 	duplicate = dup_map(data);
 	y = 1;

@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/16 16:02:44 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/19 09:36:18 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 
-#	include "./mlx.h"
+#	include "./mlx_linux/mlx.h"
 #	include <X11/keysym.h>
 
 #	include <stdlib.h>

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: truv <truv@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:04:02 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/18 11:24:30 by truv             ###   ########.fr       */
+/*   Updated: 2024/02/19 10:34:23 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,22 @@ int set_img(t_game *data)
 {
 	data->img.height = 50;
 	data->img.width = 50;
-	data->img.player = "./assets/face.xpm";
+	data->img.player = "../assets/face.xpm";
 	data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.player, &(data->img.width), &(data->img.height));
-	data->img.background = "./assets/fond.xpm";
+	data->img.background = "../assets/fond.xpm";
 	data->img.img_background = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.background, &(data->img.width), &(data->img.height));
-	data->img.wall = "./assets/fire.xpm";
+	data->img.wall = "../assets/fire.xpm";
 	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.wall, &(data->img.width), &(data->img.height));
-			data->img.door = "./assets/porte.xpm";
+			data->img.door = "../assets/porte.xpm";
 	data->img.img_door = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.door, &(data->img.width), &(data->img.height));
-	data->img.bag = "./assets/caisse1.xpm";
+	data->img.bag = "../assets/caisse1.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
-	data->img.enemy = "./assets/monstre.xpm";
+	data->img.enemy = "../assets/monstre.xpm";
 	data->img.img_enemy = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.enemy, &(data->img.width), &(data->img.height));
 

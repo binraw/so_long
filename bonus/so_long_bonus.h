@@ -3,24 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: truv <truv@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/18 11:44:56 by truv             ###   ########.fr       */
+/*   Updated: 2024/02/19 14:23:02 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 
-#	include "./mlx.h"
+#	include "../mlx_linux/mlx.h"
 #	include <X11/keysym.h>
 
 #	include <stdlib.h>
 #	include <stdio.h>
-#	include "printf/ft_printf.h"
-#	include "get_next_line.h"
+#	include "../printf/ft_printf.h"
+#	include "../get_next_line.h"
+#	include <time.h>
+#	include <pthread.h>
+#include <X11/Xlib.h>
 
 typedef struct img_s
 {
@@ -102,4 +105,20 @@ int	valid_map(t_game *data, char **dup, int y);
 void	good_path(t_game *data, char **dup, int i, int y);
 void    screen_number_move(t_game *data);
 void    enemy_move(t_game *data, int new_y, int new_x);
+void    destroy_img(t_game *data);
+void    destroy_map(t_game *data);
+void	print_map_string(t_game *data);
+void	delay(int milliseconds);
+void    *animation_wall_thread( void *args);
+void    updapte_img_bag(t_game *data, char *img_path);
+void    updapte_img_player(t_game *data, char *img_path);
+void    updapte_img_wall(t_game *data, char *img_path);
+int animation_wall(t_game *data);
+
+
+typedef struct {
+    t_game *data;
+
+} AnimationData;
+
 #endif
