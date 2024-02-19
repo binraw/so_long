@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:02:20 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/19 10:27:27 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:54:19 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,13 @@ int		all_check_map(t_game *data, char **argv)
 	int check;
 	
 	check = 0;
-	printf("check map : %s\n", data->map[0]);
-	printf("check map : %s\n", data->map[1]);
-	printf("check map : %s\n", data->map[2]);
-	printf("check map : %s\n", data->map[3]);
 	check += format_check(data);
-	printf("check format : %d\n", check);
 	check += check_wall_map(data);
-	printf("check wall : %d\n", check);
 	check += check_side_wall(data);
-	printf("check side : %d\n", check);
 	check += check_extension_file(argv);
-	printf("check exten : %d\n", check);
 	check += check_number_elem(data);
-	printf("check number : %d\n", check);
 	check += check_content(data);
-	printf("check content : %d\n", check);
 	check += check_valid_map(data);
-	printf("check valid : %d\n", check);
 	
 	return (check);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: truv <truv@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/18 11:38:23 by truv             ###   ########.fr       */
+/*   Updated: 2024/02/19 15:22:13 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,11 @@ void init_maap(t_game *data)
 {
 	int		y;
 	int		i;
-	
 
 	y = 0;
 	i = 0;
 	if (!data->map)
 		return ;
-
 	while (data->map[y])
 	{
 		i = 0;
@@ -34,7 +32,6 @@ void init_maap(t_game *data)
 		}
 		y++;
 	}
-	
 }
 
 void	screen_model(char c, t_game *data, int i, int y)
@@ -92,7 +89,7 @@ int count_line_maap(char *file)
 	int		fd;
 	int 	reader;
 	char	*lign;
-	
+
 	reader = 0;
 	fd = open(file, O_RDONLY);
 	count = -1;
@@ -107,11 +104,10 @@ int count_line_maap(char *file)
 	return (count);
 }
 
-
 void		alloc_lign(char *file, t_game *data)
 {
 	int		line_count;
-	
+
 	line_count = 0;
 	line_count = count_line_maap(file);
 	data->map = malloc(sizeof(char *) * line_count + 1);

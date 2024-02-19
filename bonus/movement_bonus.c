@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:20:04 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/19 11:18:10 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:36:43 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void key_up(t_game *data)
         player_move(data, data->pos_y - 1, data->pos_x);
         data->count_face = 1;
         updapte_img_bag(data, "../assets/caisse1.xpm");
-        // screen_number_move(data);
 		print_map_string(data);
         }
         else 
@@ -54,7 +53,6 @@ void key_up(t_game *data)
             updapte_img_player(data,  "../assets/back_2.xpm");
             player_move(data, data->pos_y - 1 , data->pos_x);
             updapte_img_bag(data, "../assets/caisse4.xpm");
-            // screen_number_move(data);
 			print_map_string(data);
         }
 }
@@ -68,7 +66,6 @@ void key_down(t_game *data)
             player_move(data, data->pos_y + 1, data->pos_x);
             data->count_back = 1;
             updapte_img_bag(data, "../assets/caisse3.xpm");
-            // screen_number_move(data);
 			print_map_string(data);
         }
         else 
@@ -77,8 +74,7 @@ void key_down(t_game *data)
 			updapte_img_player(data,  "../assets/face_2.xpm");
             player_move(data, data->pos_y + 1 , data->pos_x);
             updapte_img_bag(data, "../assets/caisse1.xpm");
-			// updapte_img_wall(data,  "../assets/fire.xpm");
-            // screen_number_move(data);
+			updapte_img_wall(data,  "../assets/fire.xpm");
 			print_map_string(data);
         }
 }
@@ -92,7 +88,6 @@ void key_left(t_game *data)
         	player_move(data, data->pos_y, data->pos_x - 1);
             data->count_left = 1;
             updapte_img_bag(data, "../assets/caisse1.xpm");
-            // screen_number_move(data);
 			print_map_string(data);
         }
         else 
@@ -101,8 +96,7 @@ void key_left(t_game *data)
         	updapte_img_player(data,  "../assets/left_2.xpm");
             player_move(data, data->pos_y , data->pos_x - 1);
             updapte_img_bag(data, "../assets/caisse4.xpm");
- 			// updapte_img_wall(data,  "../assets/fire.xpm");
-            // screen_number_move(data);
+ 			updapte_img_wall(data,  "../assets/fire2.xpm");
 			print_map_string(data);
         }
 }
@@ -115,7 +109,6 @@ void	key_right(t_game *data)
             player_move(data, data->pos_y, data->pos_x + 1);
             data->reta_right = 1;
             updapte_img_bag(data, "../assets/caisse4.xpm");
-            // screen_number_move(data);
 			print_map_string(data);
         }
         else 
@@ -124,8 +117,7 @@ void	key_right(t_game *data)
             updapte_img_player(data,  "../assets/right_2.xpm");
             player_move(data, data->pos_y , data->pos_x + 1);
             updapte_img_bag(data, "../assets/caisse4.xpm");
-            // updapte_img_wall(data,  "../assets/fire.xpm");
-            // screen_number_move(data);
+            updapte_img_wall(data,  "../assets/fire3.xpm");
 			print_map_string(data);
 		
         }
@@ -133,18 +125,20 @@ void	key_right(t_game *data)
 
 int    key_hook(int keycode, t_game *data)
 {
-
-    if (keycode == XK_w || keycode == XK_Up)
+	if (keycode == XK_w || keycode == XK_Up)
 		key_up(data);
-     else if (keycode == XK_s || keycode == XK_Down)
+	else if (keycode == XK_s || keycode == XK_Down)
 		key_down(data);
 
-     else if (keycode == XK_a || keycode == XK_Left)
+	else if (keycode == XK_a || keycode == XK_Left)
 		key_left(data);
-     else if (keycode == XK_d || keycode == XK_Right)
+	else if (keycode == XK_d || keycode == XK_Right)
 		key_right(data);
-    else if (keycode == XK_Escape)
+	else if (keycode == XK_Escape)
         exit(EXIT_SUCCESS);
+		
+	control_img(data);
+		
     return (0);
 }
 
@@ -154,6 +148,14 @@ void	reset_count_move(t_game *data)
 	data->reta_right = 0;
 	data->count_face = 0;
 	data->count_back = 0;
+}
+
+int control_img(t_game *data)
+{
+	if (!data->img.background || !data->img.bag || !data->img.door || !data->img.enemy 
+	|| !data->img.player)
+		destroy_img(data);
+	return (0);
 }
 void    enemy_move(t_game *data, int new_y, int new_x)
 {
@@ -177,8 +179,6 @@ void    enemy_move(t_game *data, int new_y, int new_x)
 		destroy_img(data);
 		exit(EXIT_SUCCESS);
 	}
-    
-    // init_maap(data);
 }
 
 void move(t_game *data, int new_y, int new_x)

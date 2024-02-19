@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/19 14:23:02 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:37:30 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,11 +109,11 @@ void    destroy_img(t_game *data);
 void    destroy_map(t_game *data);
 void	print_map_string(t_game *data);
 void	delay(int milliseconds);
-void    *animation_wall_thread( void *args);
 void    updapte_img_bag(t_game *data, char *img_path);
 void    updapte_img_player(t_game *data, char *img_path);
 void    updapte_img_wall(t_game *data, char *img_path);
 int animation_wall(t_game *data);
+int control_img(t_game *data);
 
 
 typedef struct {
