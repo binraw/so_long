@@ -6,14 +6,14 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/20 13:57:47 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/20 14:22:49 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <stdio.h> 
 
-void init_maap(t_game *data)
+void	init_maap(t_game *data)
 {
 	int		y;
 	int		i;
@@ -25,7 +25,7 @@ void init_maap(t_game *data)
 	while (y < data->numb_line)
 	{
 		i = 0;
-		while(data->map[y][i] != '\n' && data->map[y][i])
+		while (data->map[y][i] != '\n' && data->map[y][i])
 		{
 			screen_model(data->map[y][i], data, i, y);
 			i++;
@@ -54,8 +54,8 @@ void	screen_model(char c, t_game *data, int i, int y)
 
 void	read_maap(char *file, t_game *data)
 {
-    int		i;
-    int		fd;
+	int	i;
+	int	fd;
 
 	i = 0;
 	fd = 0;
@@ -81,27 +81,25 @@ void	read_maap(char *file, t_game *data)
 	close(fd);
 }
 
-int count_line_maap(char *file)
+int	count_line_maap(char *file)
 {
 	int		count;
 	int		fd;
 	char	*lign;
-	
+
 	fd = open(file, O_RDONLY);
 	count = -1;
 	lign = "lign";
-	while(lign != NULL)
+	while (lign != NULL)
 	{
 		lign = get_next_line(fd);
 		free(lign);
 		count++;
 	}
-
 	return (count);
 }
 
-
-void		alloc_lign(char *file, t_game *data)
+void	alloc_lign(char *file, t_game *data)
 {
 	int		line_count;
 
@@ -110,7 +108,4 @@ void		alloc_lign(char *file, t_game *data)
 	data->map = malloc(sizeof(char *) * line_count + 1);
 	if (!data->map)
 		destroy_map(data);
-
-	
 }
-

@@ -6,15 +6,12 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:01:41 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/20 13:58:46 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/20 14:41:46 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include <stdlib.h>
 #include <stdio.h>
-
 #include "so_long.h"
 
 int	main(int argc, char **argv)
@@ -31,11 +28,10 @@ int	main(int argc, char **argv)
 		ft_printf("Error map");
 		exit(EXIT_FAILURE);
 	}
-	vars.mlx_win = mlx_new_window(vars.mlx_ptr, (ft_strlen_get(vars.map[0]) - 1) * 50, (count_line_maap(argv[1])) * 50, "Hello world!");
-	vars.count_left = 0;
-	vars.reta_right = 0;
-	vars.count_back = 0;
-	vars.count_face = 0;
+	vars.mlx_win = mlx_new_window(vars.mlx_ptr,
+			(ft_strlen_get(vars.map[0]) - 1) * 50,
+			(count_line_maap(argv[1])) * 50, "Hello world!");
+	reset_count_move(&vars);
 	vars.move = 0;
 	set_img(&vars);
 	init_maap(&vars);
@@ -43,4 +39,28 @@ int	main(int argc, char **argv)
 	mlx_hook(vars.mlx_win, 17, 0, destroy_img, &vars);
 	mlx_loop(vars.mlx_ptr);
 	return (0);
+}
+
+void	updapte_img_bag(t_game *data, char *img_path)
+{
+	mlx_destroy_image(data->mlx_ptr, data->img.img_bag);
+	data->img.bag = img_path;
+	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
+			data->img.bag, &(data->img.width), &(data->img.height));
+}
+
+void	updapte_img_player(t_game *data, char *img_path)
+{
+	mlx_destroy_image(data->mlx_ptr, data->img.img_player);
+	data->img.player = img_path;
+	data->img.img_player = mlx_xpm_file_to_image(data->mlx_ptr,
+			data->img.player, &(data->img.width), &(data->img.height));
+}
+
+void	updapte_img_wall(t_game *data, char *img_path)
+{
+	mlx_destroy_image(data->mlx_ptr, data->img.img_wall);
+	data->img.wall = img_path;
+	data->img.img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
+			data->img.wall, &(data->img.width), &(data->img.height));
 }
