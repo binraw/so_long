@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:04:02 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/16 16:06:45 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:56:32 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		count_elem(t_game *data, char c)
 	y = 0;
 	i = 0;
 	count = 0;
-	while (data->map[y])
+	while (y < data->numb_line)
 	{
 		i = 0;
 		while(data->map[y][i] != '\n' && data->map[y][i])

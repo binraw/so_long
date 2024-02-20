@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/16 15:48:49 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:57:47 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void init_maap(t_game *data)
 	i = 0;
 	if (!data->map)
 		return ;
-	while (data->map[y])
+	while (y < data->numb_line)
 	{
 		i = 0;
 		while(data->map[y][i] != '\n' && data->map[y][i])
@@ -67,13 +67,17 @@ void	read_maap(char *file, t_game *data)
 		return ;
 	}
 	fd = open(file, O_RDONLY);
+	if (fd == -1)
+	{
+		destroy_map(data);
+		return ;
+	}
 	data->numb_line = count_line_maap(file);
-	while ( i < data->numb_line)
+	while (i < data->numb_line)
 	{
 		data->map[i] = get_next_line(fd);
 		i++;
 	}
-	data->map[i] = NULL;
 	close(fd);
 }
 
@@ -92,7 +96,7 @@ int count_line_maap(char *file)
 		free(lign);
 		count++;
 	}
-	close(fd);
+
 	return (count);
 }
 
@@ -100,9 +104,13 @@ int count_line_maap(char *file)
 void		alloc_lign(char *file, t_game *data)
 {
 	int		line_count;
-	
+
 	line_count = 0;
 	line_count = count_line_maap(file);
 	data->map = malloc(sizeof(char *) * line_count + 1);
+	if (!data->map)
+		destroy_map(data);
+
+	
 }
 

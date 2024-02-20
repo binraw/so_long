@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:01:41 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/20 13:40:09 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:58:15 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,6 @@ int	main(int argc, char **argv)
 	mlx_hook(vars.mlx_win, 17, 0, destroy_img, &vars);
 	mlx_loop_hook(vars.mlx_ptr, &animation_wall, &vars);
 	mlx_loop(vars.mlx_ptr);
-	// destroy_img(&vars);
-	// mlx_destroy_window(vars.mlx_ptr, vars.mlx_win);
-	// mlx_destroy_display(vars.mlx_ptr);
-	// free(vars.mlx_ptr);
 	return (0);
 }
 

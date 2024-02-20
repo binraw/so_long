@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:02:20 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/20 13:03:25 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:46:25 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,7 +190,6 @@ char	**dup_map(t_game *data)
 	duplicate = (char **)malloc(sizeof(char *) * (data->numb_line));
 	if (!duplicate)
 	{
-		// free(duplicate);
 		return (NULL);
 	}
 	while (y < data->numb_line)

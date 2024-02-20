@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:20:04 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/20 13:44:41 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:45:23 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,7 +208,7 @@ void    player_move(t_game *data, int new_y, int new_x)
 	}
         else if (data->map[new_y][new_x] == 'A')
 	{
-        	ft_printf("You LOOSE !");
+        ft_printf("You LOOSE !");
 		destroy_img(data);
 	}
 	else if (data->map[new_y][new_x] == 'E' && collect == 0)

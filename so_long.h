@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/19 09:36:18 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:48:51 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,8 @@ char	**dup_map(t_game *data);
 int	valid_map(t_game *data, char **dup, int y);
 void	good_path(t_game *data, char **dup, int i, int y);
 void    screen_number_move(t_game *data);
-void	destroy_img(t_game *data);
+int	destroy_img(t_game *data);
 void	destroy_map(t_game *data);
+void    destroy_double_char(t_game *data, char **map);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/20 10:56:33 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:50:51 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void	read_maap(char *file, t_game *data)
 		data->map[i] = get_next_line(fd);
 		i++;
 	}
-	//data->map[i] = NULL;
 	close(fd);
 }
 
@@ -117,11 +116,9 @@ void		alloc_lign(char *file, t_game *data)
 	i = -1;
 	line_count = 0;
 	line_count = count_line_maap(file);
-	//printf("line count = %d", line_count);
 	data->map = malloc(sizeof(char *) * line_count + 1);
 	if (!data->map)
 		destroy_map(data);
-	//while (++i <= line_count + 1)
-	//	data->map[i] = NULL;
+
 	
 }

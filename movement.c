@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:20:04 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/16 16:03:20 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:49:33 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ int    key_hook(int keycode, t_game *data)
     }
     else if (keycode == XK_Escape)
     {
-        exit(EXIT_SUCCESS);
+        destroy_img(data);
     }
     return (0);
 }
@@ -186,12 +186,10 @@ void    player_move(t_game *data, int new_y, int new_x)
     {
         ft_printf("You LOOSE !");
 		destroy_img(data);
-        exit(EXIT_SUCCESS);
     }
     else if (data->map[new_y][new_x] == 'E' && collect == 0)
     {
 		destroy_img(data);
-        exit(EXIT_SUCCESS);
     }
     
 	reset_count_move(data);

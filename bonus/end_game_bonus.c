@@ -56,7 +56,6 @@ int    destroy_img(t_game *data)
 	
 	mlx_destroy_window(data->mlx_ptr, data->mlx_win);
 	mlx_destroy_display(data->mlx_ptr);
-	// free(vars.mlx_ptr);
 	free(data->mlx_ptr);
 	exit(EXIT_SUCCESS);
 	return (0);
