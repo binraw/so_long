@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:02:20 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/19 14:54:19 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:03:25 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int		all_check_map(t_game *data, char **argv)
 	check += check_number_elem(data);
 	check += check_content(data);
 	check += check_valid_map(data);
+
+	
 	
 	return (check);
 }
@@ -38,7 +40,7 @@ int     format_check(t_game *data)
 	value_base = 0;
 	while (data->map[0][value_base] != '\n' && data->map[0][value_base])
 		value_base++;
-	while (data->map[y] != NULL)
+	while (y < data->numb_line)
 	{
 		i = 0;
 		while (data->map[y][i] != '\n' && data->map[y][i])
@@ -85,7 +87,7 @@ int		check_side_wall(t_game *data)
 	i = 0;
 	while (data->map[0][i] != '\n')
 		i++;
-	while (data->map[y])
+	while (y < data->numb_line)
 	{
 		if (data->map[y][0] != '1' || data->map[y][i - 1] != '1')
 			return (-1);
@@ -132,7 +134,7 @@ int check_content(t_game *data)
 
 	i = 0;
 	y = 0;
-	while (data->map[y])
+	while (y < data->numb_line)
 	{
 		i = 0;
 		while (data->map[y][i] != '\n' && data->map[y][i] )
@@ -172,11 +174,12 @@ int	check_valid_map(t_game *data)
 		y++;
 		x++;
 	}
-	free(duplicate);
+	  destroy_double_char(data, duplicate);
 	if (data->numb_collectible != 0 || data->numb_exit != 0)
 		return (-1);
 	return (0);
 }
+
 
 char	**dup_map(t_game *data)
 {
@@ -185,6 +188,11 @@ char	**dup_map(t_game *data)
 	
 	y = 0;
 	duplicate = (char **)malloc(sizeof(char *) * (data->numb_line));
+	if (!duplicate)
+	{
+		// free(duplicate);
+		return (NULL);
+	}
 	while (y < data->numb_line)
 	{
 		duplicate[y] = ft_strdup_get(data->map[y]);

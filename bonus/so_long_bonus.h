@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/19 15:37:30 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:16:31 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	valid_map(t_game *data, char **dup, int y);
 void	good_path(t_game *data, char **dup, int i, int y);
 void    screen_number_move(t_game *data);
 void    enemy_move(t_game *data, int new_y, int new_x);
-void    destroy_img(t_game *data);
+int    destroy_img(t_game *data);
 void    destroy_map(t_game *data);
 void	print_map_string(t_game *data);
 void	delay(int milliseconds);
@@ -114,6 +114,7 @@ void    updapte_img_player(t_game *data, char *img_path);
 void    updapte_img_wall(t_game *data, char *img_path);
 int animation_wall(t_game *data);
 int control_img(t_game *data);
+void    destroy_double_char(t_game *data, char **map);
 
 
 typedef struct {

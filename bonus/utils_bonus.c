@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:04:02 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/19 10:34:23 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/20 11:34:01 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int set_img(t_game *data)
 	data->img.img_enemy = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.enemy, &(data->img.width), &(data->img.height));
 
+	control_img(data);
 //possibiliter de faire une seule fonction qui initialise toutes les images peut etre possible de le faire pour le changer en donnant un nom du style : variable = enfaite data->img.wall par exemple
 // FAIRE initial  tout les img_ a null et verifie si bien creer si ce n'est pas le cas detroy tout le prog
 	// if (!data->img.img_player)
@@ -69,7 +70,7 @@ int		count_elem(t_game *data, char c)
 	y = 0;
 	i = 0;
 	count = 0;
-	while (data->map[y])
+	while (y < data->numb_line)
 	{
 		i = 0;
 		while(data->map[y][i] != '\n' && data->map[y][i])
