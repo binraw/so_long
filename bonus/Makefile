@@ -9,8 +9,8 @@ PRINTFDIR = ./../printf
 
 
 
-SRCS= main_bonus.c utils_bonus.c ../get_next_line.c ../get_next_line_utils.c map_bonus.c generate_img_bonus.c movement_bonus.c check_map_bonus.c end_game_bonus.c
-# Remplacez .c par .o pour obtenir les noms des fichiers objets
+SRCS= main_bonus.c utils_bonus.c ../get_next_line.c ../get_next_line_utils.c map_bonus.c generate_img_bonus.c movement_bonus.c check_map_bonus.c end_game_bonus.c key_bonus.c check_utils_bonus.c
+
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
