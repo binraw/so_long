@@ -6,16 +6,13 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:01:41 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/21 13:19:33 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:51:28 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include <stdlib.h>
 #include <stdio.h>
 #include "so_long_bonus.h"
-
 
 int	main(int argc, char **argv)
 {
@@ -28,7 +25,8 @@ int	main(int argc, char **argv)
 	read_maap(argv[1], &vars);
 	if ((all_check_map(&vars, argv)) != 0)
 		error_game(&vars);
-	vars.mlx_win = mlx_new_window(vars.mlx_ptr, (ft_strlen_get(vars.map[0]) - 1) * 50, (count_line_maap(argv[1])) * 50, "So_long");
+	vars.mlx_win = mlx_new_window(vars.mlx_ptr, (ft_strlen_get(vars.map[0]) - 1)
+			* 50, (count_line_maap(argv[1])) * 50, "So_long");
 	if (!vars.mlx_win)
 		destroy_map(&vars);
 	reset_count_move(&vars);
@@ -37,11 +35,10 @@ int	main(int argc, char **argv)
 	init_maap(&vars);
 	mlx_key_hook(vars.mlx_win, key_hook, &vars);
 	mlx_hook(vars.mlx_win, 17, 0, destroy_img, &vars);
-	mlx_loop_hook(vars.mlx_ptr, &animation_wall, &vars);	
+	mlx_loop_hook(vars.mlx_ptr, &animation_wall, &vars);
 	mlx_loop(vars.mlx_ptr);
 	return (0);
 }
-
 
 void	error_game(t_game *data)
 {

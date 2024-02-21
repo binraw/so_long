@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:16:51 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/21 13:16:32 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:39:40 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	check_number_elem(t_game *data)
 void	reset_count_move(t_game *data)
 {
 	data->count_left = 0;
-    data->reta_right = 0;
-    data->count_face = 0;
-    data->count_back = 0;
+	data->reta_right = 0;
+	data->count_face = 0;
+	data->count_back = 0;
 }
