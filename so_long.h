@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/20 15:02:28 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:14:42 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ void	update_animation(t_game *data, char *player_path,
 			char *bag_path, char *wall_path);
 void	control_move(t_game *data, int new_y, int new_x);
 void	screen_number_move(t_game *data);
+void	error_game(t_game *data);
 
 #endif

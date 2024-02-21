@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:16:50 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/20 15:30:04 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:11:30 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	destroy_map(t_game *data)
 		free(data->map[y]);
 		y--;
 	}
-	free(data->map[y]);
+	if (y >= 0)
+		free(data->map[y]);
 	free(data->map);
 	return ;
 }

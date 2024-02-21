@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 13:59:32 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/20 15:38:47 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/21 12:38:14 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,8 @@ void	delay(int milliseconds)
 
 int	animation_wall(t_game *data)
 {
-	static int	i;
+	static int	i = 0;
 
-	i = 0;
 	while (i < 20)
 	{
 		if ((i % 2) == 0)

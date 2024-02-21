@@ -6,14 +6,14 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/20 13:50:51 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:12:20 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 #include <stdio.h> 
 
-void init_maap(t_game *data)
+void	init_maap(t_game *data)
 {
 	int		y;
 	int		i;
@@ -25,7 +25,7 @@ void init_maap(t_game *data)
 	while (y < data->numb_line)
 	{
 		i = 0;
-		while(data->map[y][i] != '\n' && data->map[y][i])
+		while (data->map[y][i] != '\n' && data->map[y][i])
 		{
 			screen_model(data->map[y][i], data, i, y);
 			i++;
@@ -44,12 +44,12 @@ void	screen_model(char c, t_game *data, int i, int y)
 		print_img(data, data->img.img_bag, i, y);
 	if (c == 'E')
 		print_img(data, data->img.img_door, i, y);
-    if (c == 'A')
-    {
-        print_img(data, data->img.img_enemy, i, y);
-        data->pos_enemy_x = i;
-        data->pos_enemy_y = y;
-    }
+	if (c == 'A')
+	{
+		print_img(data, data->img.img_enemy, i, y);
+		data->pos_enemy_x = i;
+		data->pos_enemy_y = y;
+	}
 	if (c == 'P')
 	{
 		print_img(data, data->img.img_player, i, y);
@@ -60,8 +60,8 @@ void	screen_model(char c, t_game *data, int i, int y)
 
 void	read_maap(char *file, t_game *data)
 {
-    int		i;
-    int		fd;
+	int	i;
+	int	fd;
 
 	i = 0;
 	fd = 0;
@@ -75,7 +75,7 @@ void	read_maap(char *file, t_game *data)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		destroy_map(data);
+		error_game(data);
 		return ;
 	}
 	data->numb_line = count_line_maap(file);
@@ -87,19 +87,18 @@ void	read_maap(char *file, t_game *data)
 	close(fd);
 }
 
-int count_line_maap(char *file)
+int	count_line_maap(char *file)
 {
 	int		count;
 	int		fd;
-	int 	reader;
+	int		reader;
 	char	*lign;
 
 	reader = 0;
 	fd = open(file, O_RDONLY);
-	
 	count = -1;
 	lign = "lign";
-	while(lign != NULL)
+	while (lign != NULL)
 	{
 		lign = get_next_line(fd);
 		free(lign);
@@ -108,7 +107,7 @@ int count_line_maap(char *file)
 	return (count);
 }
 
-void		alloc_lign(char *file, t_game *data)
+void	alloc_lign(char *file, t_game *data)
 {
 	int		line_count;
 	int		i;
@@ -119,6 +118,4 @@ void		alloc_lign(char *file, t_game *data)
 	data->map = malloc(sizeof(char *) * line_count + 1);
 	if (!data->map)
 		destroy_map(data);
-
-	
 }

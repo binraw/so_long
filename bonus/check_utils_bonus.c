@@ -6,11 +6,11 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:18:40 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/20 15:25:20 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:40:27 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	check_number_elem(t_game *data)
 {

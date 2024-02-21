@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/20 14:22:49 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:16:13 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ void	read_maap(char *file, t_game *data)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		destroy_map(data);
+		// destroy_map(data);
+		error_game(data);
 		return ;
 	}
 	data->numb_line = count_line_maap(file);
