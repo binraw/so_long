@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:04:02 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/20 14:55:11 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/23 16:23:45 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	set_img(t_game *data)
 	data->img.bag = "./assets/caisse1.xpm";
 	data->img.img_bag = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->img.bag, &(data->img.width), &(data->img.height));
+	control_img(data);
 	return (0);
 }
 
@@ -63,4 +64,11 @@ int	count_elem(t_game *data, char c)
 		y++;
 	}
 	return (count);
+}
+int	control_img(t_game *data)
+{
+	if (!data->img.background || !data->img.bag
+		|| !data->img.door || !data->img.player)
+		destroy_img(data);
+	return (0);
 }
