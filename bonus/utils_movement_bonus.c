@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:10:17 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/21 11:18:50 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/23 15:53:45 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,17 +66,17 @@ void	control_move(t_game *data, int new_y, int new_x)
 	last_x = data->pos_x;
 	last_y = data->pos_y;
 	if (last_x < new_x)
-		update_animation(data, "../assets/right_run.xpm",
-			"../assets/caisse4.xpm");
+		update_animation(data, "./assets/right_run.xpm",
+			"./assets/caisse4.xpm");
 	if (last_x > new_x)
-		update_animation(data, "../assets/left_run.xpm",
-			"../assets/caisse2.xpm");
+		update_animation(data, "./assets/left_run.xpm",
+			"./assets/caisse2.xpm");
 	if (last_y > new_y)
-		update_animation(data, "../assets/back_run.xpm",
-			"../assets/caisse4.xpm");
+		update_animation(data, "./assets/back_run.xpm",
+			"./assets/caisse4.xpm");
 	if (last_y < new_y)
-		update_animation(data, "../assets/face_run.xpm",
-			"../assets/caisse2.xpm" );
+		update_animation(data, "./assets/face_run.xpm",
+			"./assets/caisse2.xpm" );
 }
 
 void	screen_number_move(t_game *data)

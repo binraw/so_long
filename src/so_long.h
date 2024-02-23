@@ -6,18 +6,18 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/21 13:14:42 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/23 13:21:43 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "./mlx_linux/mlx.h"
+# include "../mlx_linux/mlx.h"
 # include <X11/keysym.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include "printf/ft_printf.h"
+# include "../lib/printf/ft_printf.h"
 # include "get_next_line.h"
 
 typedef struct img_s

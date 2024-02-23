@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 13:59:32 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/21 12:38:14 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/23 15:52:47 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ int	animation_wall(t_game *data)
 	{
 		if ((i % 2) == 0)
 		{
-			updapte_img_wall(data, "../assets/fire.xpm");
+			updapte_img_wall(data, "./assets/fire.xpm");
 			delay(100);
 			init_maap(data);
 		}
 		else
 		{
-			updapte_img_wall(data, "../assets/fire3.xpm");
+			updapte_img_wall(data, "./assets/fire3.xpm");
 			delay(100);
 			init_maap(data);
 		}

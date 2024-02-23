@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:01:41 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/21 13:51:28 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/23 15:58:50 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (0);
 	vars.mlx_ptr = mlx_init();
+	if (!vars.mlx_ptr)
+		exit();
 	vars.map = NULL;
 	read_maap(argv[1], &vars);
 	if ((all_check_map(&vars, argv)) != 0)

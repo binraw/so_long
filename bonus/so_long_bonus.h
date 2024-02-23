@@ -6,7 +6,7 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:07:06 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/21 12:40:38 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/23 13:47:34 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <X11/keysym.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include "../printf/ft_printf.h"
-# include "../get_next_line.h"
+# include "../lib/printf/ft_printf.h"
+# include "../src/get_next_line.h"
 # include <time.h>
 # include <pthread.h>
 # include <X11/Xlib.h>
