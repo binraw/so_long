@@ -6,12 +6,11 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:51:36 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/21 13:49:41 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/27 09:52:39 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h> 
 
 void	init_maap(t_game *data)
 {

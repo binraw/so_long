@@ -6,13 +6,11 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:04:02 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/23 16:23:45 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/27 09:54:14 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 void	print_img(t_game *data, void *img, int x, int y)
 {

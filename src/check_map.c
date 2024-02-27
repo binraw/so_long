@@ -6,13 +6,12 @@
 /*   By: rtruvelo <rtruvelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:02:20 by rtruvelo          #+#    #+#             */
-/*   Updated: 2024/02/20 14:16:35 by rtruvelo         ###   ########.fr       */
+/*   Updated: 2024/02/27 09:50:43 by rtruvelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// CHANGEZ LES ARGUMENT PAR LA STRUCTURE DATA AVEC LA MAP
 int	all_check_map(t_game *data, char **argv)
 {
 	int	check;
